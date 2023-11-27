@@ -10,9 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_160917) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_27_164319) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "employees", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "role"
+    t.date "birthdate"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_employees_on_team_id"
+  end
+
+  create_table "event_employees", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_event_employees_on_employee_id"
+    t.index ["event_id"], name: "index_event_employees_on_event_id"
+  end
+
+  create_table "event_players", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "player_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_players_on_event_id"
+    t.index ["player_id"], name: "index_event_players_on_player_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "location"
+    t.string "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_events_on_team_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "position"
+    t.string "health"
+    t.string "availability"
+    t.date "birthdate"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "sport"
+    t.string "stadium"
+    t.string "address"
+    t.integer "budget"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_teams_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +94,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_160917) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "employees", "teams"
+  add_foreign_key "event_employees", "employees"
+  add_foreign_key "event_employees", "events"
+  add_foreign_key "event_players", "events"
+  add_foreign_key "event_players", "players"
+  add_foreign_key "events", "teams"
+  add_foreign_key "players", "teams"
+  add_foreign_key "teams", "users"
 end
