@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :teams, only: :index
+  resources :teams, only: :show do
+    resources :players, except: :destroy
+  end
 end
