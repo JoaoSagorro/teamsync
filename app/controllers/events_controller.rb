@@ -27,13 +27,13 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:team_id])
+    @event = Event.find(params[:id])
     @team = current_user.team
     @event.team = @team
   end
 
   def update
-    @event = Event.find(params[:team_id])
+    @event = Event.find(params[:id])
     @team = current_user.team
     @event.team = @team
     if @event.update(set_params)
@@ -46,6 +46,6 @@ class EventsController < ApplicationController
   private
 
   def set_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :start_time, :end_time)
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date)
   end
 end

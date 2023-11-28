@@ -7,4 +7,7 @@ DASHBOARD
 <%= link_to "All employees", team_employees_path(@team) %>
 <%= link_to "All staff", staff_path %>
 
+<%= link_to 'Add event', new_team_event_path(Team.first.id) %>
+<%= link_to 'All events', team_events_path(Team.first.id) %>
+
 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>

@@ -17,4 +17,4 @@ Rails.application.routes.draw do
     resources :players, except: :destroy
     resources :employees, except: :destroy
   end
-
+end
