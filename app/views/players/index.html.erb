@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>All players</h2>
+    <%= link_to "Back to team dashboard", team_path(@team) %>
+    <%= link_to "Add new player", new_team_player_path(@team) %>
+  <div class="d-flex row">
+    <% @players.each do |player| %>
+      <%= render "player_card", player: player %>
+    <% end %>
+  </div>
+</div>

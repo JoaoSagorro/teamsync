@@ -1,0 +1,4 @@
+<h2>Employee Info</h2>
+<%= render "employee_card", employee: @employee %>
+<%= link_to "Back to employees", team_employees_path(@team) %>
+<%= link_to "Edit employee info", edit_team_employee_path(@employee) %>

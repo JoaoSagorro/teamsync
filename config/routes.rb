@@ -9,4 +9,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "/teams/:id/staff", to: "teams#staff", as: "staff"
+
+  resources :teams, only: :show do
+    resources :events, except: :destroy
+    resources :players, except: :destroy
+    resources :employees, except: :destroy
+  end
 end
