@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>All employees</h2>
+  <%= link_to "Back to team dashboard", team_path(@team) %>
+  <%= link_to "Add new employee", new_team_employee_path(@team) %>
+  <% if @employees.any? %>
+    <div class="d-flex row">
+      <% @employees.each do |employee| %>
+        <%= render "employee_card", employee: employee %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No employees yet</p>
+  <% end %>
+</div>

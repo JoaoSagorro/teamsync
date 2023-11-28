@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>All staff</h1>
+  <h3>Employees</h3>
+    <div class="d-flex row">
+      <% @employees.each do |employee| %>
+        <%= render "/employees/employee_card", employee: employee %>
+      <% end %>
+    </div>
+  <h3>Players</h3>
+    <div class="d-flex row">
+      <% @players.each do |player| %>
+        <%= render "/players/player_card", player: player %>
+      <% end %>
+    </div>
+</div>
