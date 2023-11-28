@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :teams, only: :index do
-    resources :events
+    resources :events, except: :destroy
   end
 end

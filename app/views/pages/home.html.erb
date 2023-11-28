@@ -1,2 +1,5 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= link_to 'Add event', new_team_event_path(Team.first.id) %>
+<%= link_to 'All events', team_events_path(Team.first.id) %>
