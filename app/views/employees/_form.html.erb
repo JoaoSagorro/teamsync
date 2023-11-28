@@ -1,0 +1,7 @@
+<%= simple_form_for [team, employee] do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :role %>
+    <%= f.input :birthdate %>
+    <%= f.submit class: 'btn btn-primary'%>
+<% end %>

@@ -1,5 +1,10 @@
-<h5><%= player.first_name %> <%= player.last_name %></h5>
-<p>Position:  <%= player.position %></p>
-<p>Status:  <%= player.health %></p>
-<p><p>Availability:  <%= player.availability %></p>
-<p>Date of Birth:  <%= player.birthdate.strftime("%d %B %Y") %></p>
+<div class="col-3">
+  <div class="border mb-5">
+        <h5><%= player.first_name %> <%= player.last_name %></h5>
+        <p>Position:  <%= player.position %></p>
+        <p>Status:  <%= player.health %></p>
+        <p><p>Availability:  <%= player.availability %></p>
+        <p>Date of Birth:  <%= player.birthdate.strftime("%d %B %Y") %></p>
+        <%= link_to "View player", team_player_path(@team, player)%>
+  </div>
+</div>
