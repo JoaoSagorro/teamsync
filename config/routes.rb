@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :teams, only: :index do
     resources :events, except: :destroy
+    resources :players, except: :destroy
   end
-end
+
