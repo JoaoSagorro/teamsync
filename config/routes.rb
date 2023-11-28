@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :teams, only: :show do
     resources :players, except: :destroy
+    resources :employees, except: :destroy
   end
 end

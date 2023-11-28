@@ -1,0 +1,9 @@
+<%= simple_form_for [team, player] do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :position %>
+    <%= f.input :health %>
+    <%= f.input :availability %>
+    <%= f.input :birthdate %>
+    <%= f.submit class: 'btn btn-primary'%>
+<% end %>

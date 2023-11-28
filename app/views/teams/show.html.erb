@@ -4,4 +4,4 @@ DASHBOARD
 <p><%= @team.address %></p>
 
 <%= link_to "All players", team_players_path(@team) %>
-<%= link_to "Add new player", new_team_player_path(@team) %>
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
