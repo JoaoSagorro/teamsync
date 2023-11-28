@@ -1,0 +1,6 @@
+<h2>All players</h2>
+<% @players.each do |player| %>
+  <%= render "player_card", player: player %>
+  <%= link_to "View player", team_player_path(@team, player) %>
+<% end %>
+<%= link_to "Back to team dashboard", team_path(@team) %>
