@@ -1,3 +1,4 @@
+
 <div class="container bg-light">
   <div class="banner mt-5 rounded-1 " style="background-image: url('https://res.cloudinary.com/dydsbw4wh/image/upload/v1701194543/ezgif.com-optimize_dnrqwd.gif');">
 
@@ -7,7 +8,7 @@
       <button type="button" class="btn btn-primary me-5 rounded-1">Log In</button>
       <button type="button" class="btn btn-primary rounded-1">Sign Up</button>
     </div>
-  </div>
+</div>
 
   <div class="container">
     <h2 class="text-center mt-5 p-5"><strong>How it works</strong></h2>
@@ -95,3 +96,11 @@
       >
   </div>
 </footer>
+
+<% if user_signed_in? %>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+<% else %>
+  <%= link_to "Log in", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
+

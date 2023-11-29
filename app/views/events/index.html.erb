@@ -1,0 +1,4 @@
+<% @events.each do |event| %>
+  <p><%= event.title %></p>
+  <%= link_to 'See more', team_event_path(@team, event) %>
+<% end %>
