@@ -5,3 +5,22 @@
 .max-width-40 {
   max-width:49%;
 }
+
+.dashboard {
+  h6{
+    font-size: 12px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 15px;
+  }
+}
+
+.injured-players {
+  width: 100vw;
+  overflow-x: auto
+}
