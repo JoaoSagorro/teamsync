@@ -1,4 +1,10 @@
-<h2>Employee Info</h2>
-<%= render "employee_card", employee: @employee %>
-<%= link_to "Back to employees", team_employees_path(@team) %>
-<%= link_to "Edit employee info", edit_team_employee_path(@employee) %>
+<div class="container profile">
+  <div class="d-flex">
+    <h1 class="fw-light me-3 mb-0"><%= @employee.first_name %> <%= @employee.last_name %></h1>
+    </div>
+  <h3 class="my-3"><%= @employee.role %></h3>
+  <h4><%= @employee.birthdate.strftime("%d %B %Y") %></h4>
+  <p>Notes and calendar go here</p>
+  <p><%= link_to "Edit employee info", edit_team_employee_path(@employee) %> </p>
+  <img src="https://img.freepik.com/free-vector/schedule-calendar-flat-style_78370-1550.jpg">
+</div>
