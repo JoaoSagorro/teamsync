@@ -1,6 +1,8 @@
-.staff-card  {
-  background-color: white;
-
+.player-card  {
+  background-color: #ffffff;
+  margin: 15px;
+  margin-bottom: 20px;
+  padding-left: 15px;
   h6 {
     color: #7B95A9;
     text-transform: uppercase;
@@ -11,5 +13,66 @@
 
   img {
     margin-right: 10px;
+  }
+}
+
+.employee-card {
+  background-color: $background;
+  margin: 0px;
+
+  h5 {
+    font-size: 15px;
+  }
+  h6 {
+    color: #7B95A9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.employees {
+  margin: 15px;
+}
+
+.staff-text {
+  margin: 25px;
+}
+
+.health-status {
+  border-radius: 20px;
+  width: 120px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.available {
+  color: #31c70b;
+  background-color: #E7FFE5;
+}
+
+.injured {
+  color: #FF001E;
+  background-color: #FFE5E8;
+}
+
+.limited {
+  color: #FF9900;
+  background-color: #FFF6E5;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: $primary;
+
+  .player-card {
+    background-color: #92bfca89;
+    box-shadow: inset 0px 0px 2px 0.5px $primary;
+    border-radius: 0px;
   }
 }

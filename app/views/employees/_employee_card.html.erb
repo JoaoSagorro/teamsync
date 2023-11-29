@@ -1,8 +1,10 @@
-<div class="col-3">
-  <div class="border mb-5">
-    <h5><%= employee.first_name %> <%= employee.last_name %></h5>
-    <p>Role <%= employee.role %></p>
-    <p>Date of Birth:  <%= employee.birthdate.strftime("%d %B %Y") %></p>
-    <%= link_to "View employee", team_employee_path(@team, employee) %>
-  </div>
+<div class="col-12 col-md-3 p-0">
+  <%= link_to team_employee_path(@team, employee) do %>
+    <div class="employee-card">
+        <div class="p-2">
+          <h5><%= employee.first_name %> <%= employee.last_name %></h5>
+          <h6><%= employee.role %></h6>
+      </div>
+    </div>
+  <% end %>
 </div>

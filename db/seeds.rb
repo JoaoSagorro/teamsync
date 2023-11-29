@@ -1,12 +1,35 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'open-uri'
+
+images = [
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262182/liverpool%20fc/qmzksomaxucuxmdimsot.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262182/liverpool%20fc/v9qakwe8uhahytybfmrh.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701268967/liverpool%20fc/aatborarwcav3uojibam.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262182/liverpool%20fc/vlh32a7zs94au5ghteno.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262182/liverpool%20fc/g4iftodzcgsxabytqtvw.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262182/liverpool%20fc/gmn3j73fyzdxxeqk91zt.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262182/liverpool%20fc/xlzf8bw73v7palgok7be.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262182/liverpool%20fc/trtp8kqjqu3stu74our4.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262181/liverpool%20fc/gvdpsyfjccydccwjjvdu.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262181/liverpool%20fc/cm0krknnydhqku6a2phm.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262181/liverpool%20fc/m4p8tcmldzzfjqfilnh1.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262181/liverpool%20fc/pujiaeq0gnuvgmfxa5v1.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262181/liverpool%20fc/wcb62vx5dr0pr3hxtyps.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262180/liverpool%20fc/pyvw9igzkkizmlfskmw7.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262181/liverpool%20fc/uviphz7spqgdhbwf8coc.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262180/liverpool%20fc/qwedqrexluazsfp8kblo.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262180/liverpool%20fc/qgqbiycknzgnawitbhf5.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262181/liverpool%20fc/fda8ksdzrul9jovr9yy9.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262180/liverpool%20fc/rochxotcwutxrjhefmj0.png",
+  "https://res.cloudinary.com/dezhqd5rm/image/upload/v1701262180/liverpool%20fc/bwlfljt4udn9zbuo2c3n.png"
+]
+
+def health()
+  if rand(1..10) <= 8
+    return "Available"
+  else
+    return ["Injured", "Limited"].sample
+  end
+end
 
 puts "Deleting the database"
 Employee.destroy_all
@@ -81,14 +104,17 @@ puts '...'
 
 puts 'Creating players'
 
-32.times do
+20.times do
+  file = URI.open(images.pop)
   player = Player.new({
     first_name: Faker::Sports::Football.player.split.first,
     last_name: Faker::Sports::Football.player.split.last,
     position: Faker::Sports::Football.position,
-    birthdate: Faker::Date.birthday(min_age: 18, max_age: 30)
+    birthdate: Faker::Date.birthday(min_age: 18, max_age: 30),
+    health: health()
   })
   player.team = team
+  player.photo.attach(io: file, filename: "player.png", content_type: "image/jpeg")
   player.save!
 end
 
