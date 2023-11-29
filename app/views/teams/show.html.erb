@@ -1,13 +1,15 @@
-DASHBOARD
-<h1><%= @team.name%></h1>
-<p><%= @team.stadium %></p>
-<p><%= @team.address %></p>
+<div class="p-2">
+  <h1>DASHBOARD</h1>
+  <h1><%= @team.name%></h1>
+  <p><%= @team.stadium %></p>
+  <p><%= @team.address %></p>
 
-<%= link_to "All players", team_players_path(@team) %>
-<%= link_to "All employees", team_employees_path(@team) %>
-<%= link_to "All staff", staff_path %>
+  <%= link_to "All players", team_players_path(@team) %>
+  <%= link_to "All employees", team_employees_path(@team) %>
+  <%= link_to "All staff", staff_path %>
 
-<%= link_to 'Add event', new_team_event_path(Team.first.id) %>
-<%= link_to 'All events', team_events_path(Team.first.id) %>
+  <%= link_to 'Add event', new_team_event_path(Team.first.id) %>
+  <%= link_to 'All events', team_events_path(Team.first.id) %>
 
-<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+</div>

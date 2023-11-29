@@ -1,0 +1,15 @@
+.wrapper {
+  // display: flex;
+  width: 100%;
+}
+
+#sidebar {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100px;
+  background: $navbar-color;
+  position: fixed;
+  z-index: 999;
+  border-right: 1px solid $navbar-border;
+}

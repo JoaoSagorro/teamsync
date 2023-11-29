@@ -1,6 +1,8 @@
+@import "config/colors";
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $navbar-color;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +11,14 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar {
+  border-bottom: 1px solid $navbar-border;
+  margin-left: 100px;
+}
+
+.nav-link {
+  font-family: $montserrat;
+  font-size: medium;
 }
