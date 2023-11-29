@@ -43,6 +43,7 @@
 .health-status {
   border-radius: 20px;
   width: 120px;
+  height: 25px;
   text-align: center;
   margin-top: 20px;
 }
@@ -75,4 +76,8 @@ a:hover {
     box-shadow: inset 0px 0px 2px 0.5px $primary;
     border-radius: 0px;
   }
+}
+
+.players-title h3 {
+  margin: 0px;
 }
