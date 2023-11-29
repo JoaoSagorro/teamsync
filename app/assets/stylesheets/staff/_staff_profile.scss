@@ -1,0 +1,21 @@
+.player-image {
+  position:fixed;
+	bottom: 0px;
+	right: 0px;
+  width: 500px;
+}
+
+.profile {
+  a {
+    color: $primary;
+  }
+
+ .health-status {
+  width: 150px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+ }
+}

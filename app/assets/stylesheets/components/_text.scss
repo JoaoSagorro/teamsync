@@ -2,9 +2,10 @@ h6 {
   color: #7B95A9;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
 }
+
 h3 {
   color: #7B95A9;
   text-transform: uppercase;
@@ -16,12 +17,15 @@ body {
   background-color: #E6EAED;
   font-family: Montserrat;
 }
+
 h1, h2, h3, h4, h5, h6, p {
   font-family: Montserrat;
 }
+
 .shadow-text {
   text-shadow: 1px 1px 2px grey;
 }
+
 .landing-card {
   width: 430px;
   margin: 20px;
