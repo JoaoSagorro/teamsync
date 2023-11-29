@@ -1,10 +1,12 @@
-<div class="col-3">
-  <div class="border mb-5">
-        <h5><%= player.first_name %> <%= player.last_name %></h5>
-        <p>Position:  <%= player.position %></p>
-        <p>Status:  <%= player.health %></p>
-        <p><p>Availability:  <%= player.availability %></p>
-        <p>Date of Birth:  <%= player.birthdate.strftime("%d %B %Y") %></p>
-        <%= link_to "View player", team_player_path(@team, player)%>
+<div class="col-4">
+  <div class="staff-card d-flex border m-4 px-5 py-3 rounded-4">
+    <div>
+      <img src="https://backend.liverpoolfc.com/sites/default/files/styles/sm/public/2023-09/23-24-virgil-captain-head.webp?itok=WaG9pjZ1", class="avatar">
+    </div>
+    <div class="player-text p-2">
+      <h5><%= player.first_name %> <%= player.last_name %></h5>
+      <h6><%= player.position %></h6>
+      <%= link_to "View player", team_player_path(@team, player)%>
+    </div>
   </div>
 </div>
