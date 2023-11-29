@@ -49,7 +49,9 @@
 
           </ul>
         <div class="d-flex align-items-center justify-content-center cool-side">
-          <i class="sidebar-button fa-solid fa-right-from-bracket fa-rotate-180" style="color: #dddddd;"></i>
+          <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+            <i class="sidebar-button fa-solid fa-right-from-bracket fa-rotate-180" style="color: #dddddd;"></i>
+          <% end %>
         </div>
     </nav>
   </div>
