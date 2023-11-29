@@ -4,40 +4,13 @@
     </div>
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">
 
-    <%# <ul class="cool-nav" aria-labelledby="navbarDropdownMenuLink">
-      <li><a class="dropdown-item" href="#">About us</a></li>
-      <li><a class="dropdown-item" href="#">Contact Us</a></li>
-      <li><a class="dropdown-item" href="#">FAQ</a></li>
-    </ul> %>
-    <%# <ul>
-      <li class="cool-nav nav-item"> %>
       <div class="me-3 d-flex flex-column align-items-end">
         <h5><%= current_user.email %></h5>
         <h6>Team Manager</h6>
       </div>
-      <a class="nav-link mx-2" href="#"><i class="profile-pic fa-solid fa-circle" style="color: #d9d9d9;"></i></a>
-      <%# </li> %>
-
-    <%# </ul> %>
+      <a class="nav-link mx-2" href="#">
+        <%= image_tag "liverpool_logo", class: "logo" %>
+        <%#= image_tag "liverpool_logo2", class: "logo" %>
+      </a>
   </nav>
 </div>
-
-  <%# <div class="container-fluid">
-    <a class="navbar-brand" href="#">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ms-auto ">
-
-        <li class="nav-item">
-          <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
-        </li>
-
-
-        <li class="nav-item dropdown">
-          <a class="nav-link mx-2 dropdown  -toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Company
-          </a> %>
