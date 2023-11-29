@@ -1,29 +1,33 @@
 
-<div class="container bg-light">
-  <div class="banner mt-5 rounded-1 " style="background-image: url('https://res.cloudinary.com/dydsbw4wh/image/upload/v1701194543/ezgif.com-optimize_dnrqwd.gif');">
+<div class="">
+  <div class="banner rounded-1" style="background-image: url('https://res.cloudinary.com/dydsbw4wh/image/upload/v1701194543/ezgif.com-optimize_dnrqwd.gif');">
 
     <div class="banner-content ">
-      <h1 class="text-white shadow pb-3"><strong>Precision. Performance. Excellence!</strong></h1>
-      <h4 class="text-white shadow pb-3">Elevate team performance with TeamSync's innovative sports management</h4>
-      <button type="button" class="btn btn-primary me-5 rounded-1">Log In</button>
-      <button type="button" class="btn btn-primary rounded-1">Sign Up</button>
+      <h1 class="shadow-text text-white pb-3"><strong>Precision. Performance. Excellence!</strong></h1>
+      <h4 class="shadow-text text-white pb-3">Elevate team performance with TeamSync's innovative sports management</h4>
+      <%= link_to  new_user_session_path do %>
+        <button type="button" class="our-buttons btn btn-primary me-5">Log In</button>
+      <% end %>
+      <%= link_to new_user_registration_path do %>
+        <button type="button" class="our-buttons btn btn-primary">Sign Up</button>
+      <% end %>
     </div>
 </div>
 
   <div class="container">
-    <h2 class="text-center mt-5 p-5"><strong>How it works</strong></h2>
+    <h1 class="text-center mt-5 p-5 fw-light">How it works</h1>
     <div class="cards d-flex justify-content-around text-center">
-      <div class="card me-4 border bg-white rounded-1">
+      <div class="landing-card card border bg-white rounded-4">
         <i class="fa-solid fa-calendar-days p-4" style="color: #2d7d9f; font-size: 4em;"></i>
         <h4>Team Shared Calendar</h4>
         <p class="text-muted">Sync schedules effortlessly with a team-shared calendar.</p>
       </div>
-      <div class="card me-4 border bg-white rounded-1">
+      <div class="landing-card card border bg-white rounded-4">
         <i class="fa-solid fa-house p-4" style="color: #2d7d9f; font-size: 4em;"></i>
         <h4>Intuitive Dashboard</h4>
         <p class="text-muted">Simplified insights with an intuitive dashboard.</p>
       </div>
-      <div class="card me-4 border bg-white rounded-1">
+      <div class="landing-card card border bg-white rounded-4">
         <i class="fa-solid fa-bars-progress p-4" style="color: #2d7d9f; font-size: 4em;"></i>
         <h4>Powerful Management</h4>
         <p class="text-muted">Empower your team with powerful management tools.</p>
@@ -42,12 +46,6 @@
   <section class="">
 
     <div class="row text-center d-flex justify-content-center pt-4">
-
-      <div class="col-md-2">
-        <h6 class="text-uppercase font-weight-bold">
-          <a href="#!">Homepage</a>
-        </h6>
-      </div>
 
       <div class="col-md-2">
         <h6 class="text-uppercase font-weight-bold">
@@ -96,11 +94,3 @@
       >
   </div>
 </footer>
-
-<% if user_signed_in? %>
-  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-<% else %>
-  <%= link_to "Log in", new_user_session_path %>
-  <%= link_to "Sign up", new_user_registration_path %>
-<% end %>
-
