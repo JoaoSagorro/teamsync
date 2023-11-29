@@ -1,15 +1,291 @@
-<div class="p-2">
-  <h1>DASHBOARD</h1>
-  <h1><%= @team.name%></h1>
-  <p><%= @team.stadium %></p>
-  <p><%= @team.address %></p>
+<div>
+  <div class="row m-1 justify-content-evenly">
 
-  <%= link_to "All players", team_players_path(@team) %>
-  <%= link_to "All employees", team_employees_path(@team) %>
-  <%= link_to "All staff", staff_path %>
+    <div class="first-row-dashboard col-4 bg-white max-width-30 rounded-4">
+      <div class="m-2">
+        <div class="row pt-2">
+          <h3 class="text-center p-2">Notifications</h3>
+          <hr>
+        </div>
 
-  <%= link_to 'Add event', new_team_event_path(Team.first.id) %>
-  <%= link_to 'All events', team_events_path(Team.first.id) %>
+        <div class="row pt-3">
+          <div class="col-2">
+            <p>photo</p>
+          </div>
+          <div class="col-5">
+            <h5>Players Name</h5>
+            <h6>Twisted Ankle</h6>
+          </div>
 
-  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+          <div class="col-5 text-end">
+            <h6>Injured</h6>
+            <h6>Now</h6>
+          </div>
+        </div>
+
+        <div class="row pt-3">
+          <div class="col-2">
+            <p>photo</p>
+          </div>
+          <div class="col-5">
+            <h5>Players Name</h5>
+            <h6>Twisted Ankle</h6>
+          </div>
+          <div class="col-5 text-end">
+            <h6>Injured</h6>
+            <h6>20 minutes ago</h6>
+          </div>
+        </div>
+
+        <div class="row pt-3 pb-3">
+          <div class="col-2">
+            <p>photo</p>
+          </div>
+          <div class="col-5">
+            <h5>Players Name</h5>
+            <h6>Twisted Ankle</h6>
+          </div>
+          <div class="col-5 text-end">
+            <h6>Injured</h6>
+            <h6>Yesterday</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="first-row-dashboard col-4 bg-white max-width-30 rounded-4">
+      <div class="m-2">
+
+        <div class="row pt-2">
+          <h3 class="text-center p-2">Whats up today</h3>
+          <hr>
+        </div>
+
+        <div class="row pt-3">
+          <div class="col-8">
+            <h5>Review Matches</h5>
+            <h6>icon 00-00-00, 00:00 PM</h6>
+          </div>
+          <div class="col-4 text-end">
+            <h6>meeting</h6>
+            <h6>2 people</h6>
+          </div>
+        </div>
+
+        <div class="row pt-3">
+          <div class="col-8">
+            <h5>Review Matches</h5>
+            <h6>icon 00-00-00, 00:00 PM</h6>
+          </div>
+          <div class="col-4 text-end">
+            <h6>meeting</h6>
+            <h6>2 people</h6>
+          </div>
+        </div>
+
+        <div class="row pt-3 pb-3">
+          <div class="col-8">
+            <h5>Review Matches</h5>
+            <h6>icon 00-00-00, 00:00 PM</h6>
+          </div>
+          <div class="col-4 text-end">
+            <h6>meeting</h6>
+            <h6>2 people</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="first-row-dashboard col-4 bg-white max-width-30 rounded-4">
+      <div class="m-2">
+
+        <div class="row pt-2">
+          <h3 class="text-center p-2">Following games</h3>
+          <hr>
+        </div>
+
+        <div class="row align-items-center pt-2">
+          <div class="col-5">
+            <div class="row ps-4">
+              <div class="d-flex">
+                <i class="fa-regular fa-calendar" style="color: #92bfca;"></i>
+                <h6 class="ps-1">00-00-00</h6>
+              </div>
+              <div class="d-flex">
+                <i class="fa-solid fa-location-dot" style="color: #92bfca;"></i>
+                <h6 class="ps-1">Stadium</h6>
+              </div>
+              <h6>Referee Name</h6>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="bg-light rounded-4">
+              <div class="row">
+                <h6 class="text-center p-2">PSG</h6>
+                <h6 class="text-center">VS</h6>
+                <h6 class="text-center p-2">FCBM</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-5">
+            <div class="row pe-4">
+              <h6 class="text-center">Team Name</h6>
+            </div>
+             <div class="row pe-4">
+              <h6 class="text-center">Team Name</h6>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row align-items-center pt-2">
+          <div class="col-5">
+            <div class="row ps-4">
+              <div class="d-flex">
+                <i class="fa-regular fa-calendar" style="color: #92bfca;"></i>
+                <h6 class="ps-1">00-00-00</h6>
+              </div>
+              <div class="d-flex">
+                <i class="fa-solid fa-location-dot" style="color: #92bfca;"></i>
+                <h6 class="ps-1">Stadium</h6>
+              </div>
+              <h6>Referee Name</h6>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="bg-light rounded-4">
+              <div class="row">
+                <h6 class="text-center p-2">PSG</h6>
+                <h6 class="text-center">VS</h6>
+                <h6 class="text-center p-2">FCBM</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-5">
+            <div class="row pe-4">
+              <h6 class="text-center">Team Name</h6>
+            </div>
+             <div class="row pe-4">
+              <h6 class="text-center">Team Name</h6>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="row">
+      <div class="col-6">
+        <h3 class="text-start">Players</h3>
+      </div>
+      <div class="col-6">
+        <%= link_to "All players", team_players_path(@team), style: "float: right;" %>
+      </div>
+
+    </div>
+
+    <div class="row d-flex justify-content-around mx-auto">
+      <div class="col-3 d-flex">
+        <div class="col-3">
+          <p>photo</p>
+        </div>
+        <div class="col-9">
+          <div class="row">
+            <h5>Players Name</h5>
+          </div>
+          <div class="row">
+            <h6>Position</h6>
+          </div>
+          <div class="row">
+            <h6>Injured</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3 d-flex">
+        <div class="col-3">
+          <p>photo</p>
+        </div>
+
+        <div class="col-9">
+          <div class="row">
+            <h5>Players Name</h5>
+          </div>
+          <div class="row">
+            <h6>Position</h6>
+          </div>
+          <div class="row">
+            <h6>Injured</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3 d-flex">
+        <div class="col-3">
+          <p>photo</p>
+        </div>
+
+        <div class="col-9">
+          <div class="row">
+            <h5>Players Name</h5>
+          </div>
+          <div class="row">
+            <h6>Position</h6>
+          </div>
+          <div class="row">
+            <h6>Injured</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3 d-flex">
+        <div class="col-3">
+          <p>photo</p>
+        </div>
+
+        <div class="col-9">
+          <div class="row">
+            <h5>Players Name</h5>
+          </div>
+          <div class="row">
+            <h6>Position</h6>
+          </div>
+          <div class="row">
+            <h6>Injured</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row m-3 justify-content-between">
+    <div class="col-6 bg-white rounded-4 max-width-40">
+      <div class="row pt-3">
+        <h3 class="text-center p-2">Costs</h3>
+
+        <hr>
+        <img src="https://res.cloudinary.com/dydsbw4wh/image/upload/v1701275178/costs_yi1y4v.png" style="padding-bottom: 8px; border-radius: 30px;">
+      </div>
+    </div>
+
+    <div class="col-6 bg-white rounded-4 max-width-40">
+      <div class="row pt-3">
+        <h3 class="text-center p-2">Team Status</h3>
+
+        <hr>
+        <img src="https://res.cloudinary.com/dydsbw4wh/image/upload/v1701276346/team_status_ii6bfb.png" style="padding-bottom: 8px; border-radius: 30px;">
+      </div>
+    </div>
+  </div>
 </div>
