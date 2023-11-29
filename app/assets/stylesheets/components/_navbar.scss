@@ -1,5 +1,9 @@
 @import "config/colors";
 
+.cool-nav {
+  border: 1px solid black;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: $navbar-color;
@@ -14,11 +18,20 @@
 }
 
 .navbar {
-  border-bottom: 1px solid $navbar-border;
+  // border-bottom: 1px solid $navbar-border;
   margin-left: 100px;
+  max-height: 100px;
 }
 
 .nav-link {
   font-family: $montserrat;
   font-size: medium;
+}
+
+li {
+  list-style-type: none;
+}
+
+.profile-pic {
+  font-size: 46px;
 }

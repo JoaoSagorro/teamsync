@@ -1,48 +1,55 @@
 <div class="wrapper">
     <!-- Sidebar -->
-    <nav id="sidebar" class="d-flex flex-column align-items-center py-3">
-        <div class="sidebar-header">
-            <i class="fa-solid fa-user fs-1" style="color: #d9d9d9;"></i>
+    <nav id="sidebar" class="d-flex flex-column align-items-center justify-content-between py-3">
+        <div class="sidebar-header cool-side">
+            <i class="logo-pic fa-solid fa-circle" style="color: #d9d9d9;"></i>
         </div>
-          <ul class="list-unstyled components">
-              <p>Dummy Heading</p>
-              <li class="active">
-                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                  <ul class="collapse list-unstyled" id="homeSubmenu">
-                      <li>
-                          <a href="#">Home 1</a>
-                      </li>
-                      <li>
-                          <a href="#">Home 2</a>
-                      </li>
-                      <li>
-                          <a href="#">Home 3</a>
-                      </li>
-                  </ul>
-              </li>
-              <li>
-                  <a href="#">About</a>
-              </li>
-              <li>
-                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                  <ul class="collapse list-unstyled" id="pageSubmenu">
-                      <li>
-                          <a href="#">Page 1</a>
-                      </li>
-                      <li>
-                          <a href="#">Page 2</a>
-                      </li>
-                      <li>
-                          <a href="#">Page 3</a>
-                      </li>
-                  </ul>
-              </li>
-              <li>
-                  <a href="#">Portfolio</a>
-              </li>
-              <li>
-                  <a href="#">Contact</a>
-              </li>
+          <ul data-controller="click" class="h-50 d-flex flex-column justify-content-around align-items-center cool-side list-unstyled components">
+
+            <li>
+              <div class="d-flex justify-content-center align-items-center <%= controller_name == 'teams' && action_name == 'show' ? 'very-cool-side' : '' %>">
+                <%= link_to team_path(@team) do %>
+                  <i class="sidebar-button fa-solid fa-house" style="<%= controller_name == 'teams' && action_name == 'show' ? 'color: #2D7D9F' : 'color: #dddddd;' %>"></i>
+                <% end %>
+              </div>
+            </li>
+
+            <li>
+              <div  class="d-flex justify-content-center align-items-center <%= controller_name == 'events' && action_name == 'index' ? 'very-cool-side' : '' %>">
+                <%= link_to team_events_path(@team) do %>
+                  <i class="sidebar-button fa-regular fa-calendar" style="<%= controller_name == 'events' && action_name == 'index' ? 'color: #2D7D9F' : 'color: #dddddd;' %>"></i>
+                <% end %>
+              </div>
+            </li>
+
+
+            <li>
+              <div class="d-flex justify-content-center align-items-center <%= controller_name == 'teams' && action_name == 'staff' ? 'very-cool-side' : '' %>">
+                <%= link_to staff_path(@team) do %>
+                  <i class="sidebar-button fa-solid fa-people-group" style="<%= controller_name == 'teams' && action_name == 'staff' ? 'color: #2D7D9F' : 'color: #dddddd;' %>"></i>
+                <% end %>
+              </div>
+            </li>
+
+            <li>
+              <div class="d-flex justify-content-center align-items-center">
+                <%= link_to team_path(@team) do %>
+                  <i class="sidebar-button fa-solid fa-bars-progress" style="color: #dddddd;"></i>
+                <% end %>
+              </div>
+            </li>
+
+            <li>
+              <div class="d-flex justify-content-center align-items-center">
+                <%= link_to team_path(@team) do %>
+                  <i class="sidebar-button fa-solid fa-comments" style="color: #dddddd;"></i>
+                <% end %>
+              </div>
+            </li>
+
           </ul>
+        <div class="d-flex align-items-center justify-content-center cool-side">
+          <i class="sidebar-button fa-solid fa-right-from-bracket fa-rotate-180" style="color: #dddddd;"></i>
+        </div>
     </nav>
   </div>
