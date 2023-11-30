@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div>
   <div class="row my-4 mx-1 justify-content-evenly">
 
     <div class="first-row-dashboard col-4 bg-white max-width-30 rounded-4">
@@ -62,36 +62,17 @@
         </div>
 
         <div class="row pt-3">
-          <div class="col-8">
-            <h5>Review Matches</h5>
-            <h6>icon 00-00-00, 00:00 PM</h6>
-          </div>
-          <div class="col-4 text-end">
-            <h6>meeting</h6>
-            <h6>2 people</h6>
-          </div>
-        </div>
-
-        <div class="row pt-3">
-          <div class="col-8">
-            <h5>Review Matches</h5>
-            <h6>icon 00-00-00, 00:00 PM</h6>
-          </div>
-          <div class="col-4 text-end">
-            <h6>meeting</h6>
-            <h6>2 people</h6>
-          </div>
-        </div>
-
-        <div class="row pt-3 pb-3">
-          <div class="col-8">
-            <h5>Review Matches</h5>
-            <h6>icon 00-00-00, 00:00 PM</h6>
-          </div>
-          <div class="col-4 text-end">
-            <h6>meeting</h6>
-            <h6>2 people</h6>
-          </div>
+            <% @team.events.each do |event|  %>
+              <% if event.start_date.to_date == Date.today %>
+                <div class="col-8 mb-2">
+                  <h5><%= event.title %></h5>
+                  <h6><%= event.start_date.strftime("%H:%M")%></h6>
+                </div>
+                <div class="col-4 text-end mb-2">
+                  <h6>event-type</h6>
+                </div>
+              <% end %>
+            <% end %>
         </div>
       </div>
     </div>
@@ -133,7 +114,7 @@
             <div class="row pe-4">
               <h6 class="text-center">Team Name</h6>
             </div>
-             <div class="row pe-4">
+            <div class="row pe-4">
               <h6 class="text-center">Team Name</h6>
             </div>
           </div>

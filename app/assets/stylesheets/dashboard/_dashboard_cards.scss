@@ -6,6 +6,10 @@
   max-width:49%;
 }
 
+
+.first-row-dashboard::-webkit-scrollbar {
+  overflow-y: scroll;
+
 .dashboard {
   h6{
     font-size: 12px;
@@ -22,5 +26,5 @@
 
 .injured-players {
   width: 100vw;
-  overflow-x: auto
+  overflow-x: auto;
 }
