@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
   def index
     @team = current_user.team
-    @events = Event.all
+    @events = Event.where(start_date: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week)
+    # start_date = params.fetch(:start_date, Date.today).to_date
+    # @meetings = Event.where(start_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def show
