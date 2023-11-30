@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @events = @player.events
   end
 
   def new

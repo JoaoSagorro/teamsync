@@ -22,7 +22,8 @@ class EventsController < ApplicationController
     @event.team = @team
     @event.save
     if @event.save
-      redirect_to team_events_path(@event.team_id, @event.id)
+      @event.player_ids = params[:event][:player_ids] || []
+      redirect_to team_event_path(@event.team_id, @event.id)
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,6 +40,7 @@ class EventsController < ApplicationController
     @team = current_user.team
     @event.team = @team
     if @event.update(set_params)
+      @event.player_ids = params[:event][:player_ids] || []
       redirect_to team_event_path(@event.team_id, @event.id)
     else
       render :edit, status: :unprocessable_entity
@@ -48,6 +50,6 @@ class EventsController < ApplicationController
   private
 
   def set_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date)
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :players)
   end
 end

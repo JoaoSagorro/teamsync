@@ -1,5 +1,7 @@
 <%# <%= @event.title %>
 <%# <%= @event.location %>
+Players: <%= @event.players.to_a.map {|player| player.first_name}%>
 <div class="row justify-content-center">
   <%= render 'event_card' %>
 </div>
+
