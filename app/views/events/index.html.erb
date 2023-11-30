@@ -1,4 +1,22 @@
-<% @events.each do |event| %>
-  <p><%= event.title %></p>
-  <%= link_to 'See more', team_event_path(@team, event) %>
-<% end %>
+<%# <% @events.each do |event| %>
+  <%# <p><%= event.title</p> %>
+  <%# <%= link_to 'See more', team_event_path(@team, event) %>
+<%# <% end %>
+<div class="d-flex flex-column align-items-center">
+  <div class="w-100 d-flex justify-content-end me-2">
+    <%= link_to new_team_event_path(@team) do %>
+      <i class="fa-solid fa-circle-plus fa-4x m-2" style="color: #ffffff;"></i>
+    <% end %>
+  </div>
+
+  <%= month_calendar(events: @events) do |date, events| %>
+    <%= date.day %>
+    <div class="d-flex flex-column align-items-center justify-content-center card-header">
+      <% events.each do |event| %>
+        <div class="my-1 pb-1 px-2 title-div rounded-5">
+          <p class="calendar-title"><%= link_to event.title, team_event_path(event.team_id, event.id) %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
