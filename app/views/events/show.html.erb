@@ -1,4 +1,4 @@
 <%= @event.title %>
 <%= @event.location %>
-
+<%= @event.players.to_a.map {|player| player.first_name}%>
 <%= link_to 'edit', edit_team_event_path(@team) %>
