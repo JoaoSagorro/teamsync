@@ -1,6 +1,17 @@
 <div class="d-flex justify-content-between navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="mx-2">
-      <h1 class="ms-5 fw-light">Dashboard</h1>
+  <% if controller_name == 'teams' && action_name == 'show' %>
+    <h1 class="ms-5 fw-light">Dashboard</h1>
+  <% end %>
+    <% if controller_name == 'events' && action_name == 'index' %>
+    <h1 class="ms-5 fw-light">Calendar</h1>
+  <% end %>
+  <% if controller_name == 'teams' && action_name == 'staff' %>
+    <h1 class="ms-5 fw-light">Team Overview</h1>
+  <% end %>
+  <% if controller_name == 'players' && action_name == 'index' %>
+    <h1 class="ms-5 fw-light">All Players</h1>
+  <% end %>
     </div>
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">
       <div class="me-3 d-flex flex-column align-items-end">
