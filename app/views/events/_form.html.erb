@@ -11,6 +11,9 @@
     <%= f.input :location,
                 label: false,
                 input_html: { autocomplete: "email", style: "background: white;", placeholder: "Location" } %>
+    <%= f.input :event_type,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Event Type" }%>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= f.association :players, as: :check_boxes, label_method: :full_name, value_method: :id, input_html: { multiple: true }, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>

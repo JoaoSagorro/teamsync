@@ -35,6 +35,12 @@
   // border: 2px solid black;
 }
 
+.event-div {
+  // border: 1px solid black;
+  height: 200px;
+  overflow-y: auto;
+}
+
 .simple-calendar {
   // border: 1px dotted black;
   width: 100%;
@@ -44,7 +50,6 @@
     background-color: white;
     border: 1px solid $navbar-border;
     max-width: 50px;
-    height: 120px;
   }
 
   .wday-0 {

@@ -61,7 +61,7 @@
           <hr>
         </div>
 
-        <div class="row pt-3">
+        <div class="todays-events row pt-3">
             <% @team.events.each do |event|  %>
               <% if event.start_date.to_date == Date.today %>
                 <div class="col-8 mb-2">
@@ -175,32 +175,35 @@
 
     </div>
 
+
     <div class="injured-players d-flex justify-content-start mx-auto mt-2">
       <% @players.each do |player| %>
-      <div class="col-3 d-flex">
-        <div class="col-3">
-          <p><%= cl_image_tag player.photo.key, width: 60 %></p>
+        <div class="col-3 d-flex">
+          <div class="col-3">
+            <p><%= cl_image_tag player.photo.key, width: 60 %></p>
+          </div>
+          <div class="col-9 flex-start">
+            <div class="row">
+            <%= link_to team_player_path(@team, player) do %>
+              <h5><%= player.first_name %> <%= player.last_name %></h5>
+            <% end %>
+            </div>
+            <div class="row">
+              <h6><%= player.position %></h6>
+            </div>
+            <div class="row">
+          <% if player.health == "Injured" %>
+            <div class="health-status injured mt-0 mx-2">
+              <%= player.health %>
+            </div>
+          <% else %>
+            <div class="health-status limited mt-0 mx-2" >
+              <%= player.health%>
+            </div>
+          <% end %>
+            </div>
+          </div>
         </div>
-        <div class="col-9 flex-start">
-          <div class="row">
-            <h5><%= player.first_name %> <%= player.last_name %></h5>
-          </div>
-          <div class="row">
-            <h6><%= player.position %></h6>
-          </div>
-          <div class="row">
-        <% if player.health == "Injured" %>
-          <div class="health-status injured mt-0 mx-2">
-            <%= player.health %>
-          </div>
-        <% else %>
-          <div class="health-status limited mt-0 mx-2" >
-            <%= player.health%>
-          </div>
-        <% end %>
-          </div>
-        </div>
-      </div>
       <% end %>
 
       <%# <div class="col-3 d-flex">

@@ -7,8 +7,10 @@
 }
 
 
-.first-row-dashboard::-webkit-scrollbar {
-  overflow-y: scroll;
+.todays-events {
+  height: 300px;
+  overflow-y: auto;
+}
 
 .dashboard {
   h6{

@@ -9,15 +9,15 @@
     <% end %>
   </div>
 
-  <%= month_calendar(events: @events) do |date, events| %>
-    <%= date.day %>
-    <div class="d-flex flex-column align-items-center justify-content-center card-header">
-      <% events.each do |event| %>
-        <div class="my-1 pb-1 px-2 title-div rounded-5">
-          <p class="calendar-title"><%= link_to event.title, team_event_path(event.team_id, event.id) %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+    <%= month_calendar(events: @events) do |date, events| %>
+      <%= date.day %>
+      <div class="event-div d-flex flex-column align-items-center justify-content-start card-header pt-1">
+        <% events.each do |event| %>
+          <div class="my-1 pb-4 px-2 title-div rounded-5">
+            <p class="calendar-title"><%= link_to event.title, team_event_path(event.team_id, event.id) %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
+</div>
