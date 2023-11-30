@@ -35,3 +35,11 @@ h1 {
   letter-spacing: 2px;
   font-weight: light;
 }
+
+.navigation-links a {
+  color: $primary;
+}
+
+.navigation-links a:hover {
+  color: #004765;
+}

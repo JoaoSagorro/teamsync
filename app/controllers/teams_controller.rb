@@ -1,7 +1,9 @@
 class TeamsController < ApplicationController
   def show
     @team = current_user.team
-    # @team = Team.find(params[:id])
+    # @players = Player.where(health: "Available")
+    @players = Player.where(health: "Injured").or Player.where(health: "Limited")
+    # @players = @players.slice(0, 4)
   end
 
   def staff

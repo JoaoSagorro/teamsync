@@ -1,6 +1,5 @@
 <div class="container">
   <div class="mx-3">
-    <h1 class="fw-light">Team Overiew</h1>
       <div class="d-flex">
         <div class="players-title d-flex align-items-center">
           <h3>Players</h3>
@@ -16,7 +15,14 @@
     <% end %>
   </div>
   <div class="mx-3 mt-5">
-    <h3>Employees</h3>
+    <div class="d-flex">
+      <div class="players-title d-flex align-items-center">
+        <h3>Employees</h3>
+      </div>
+      <%= link_to new_team_employee_path(@team) do %>
+        <i class="fa-solid fa-circle-plus fa-3x m-3" style="color: #ffffff;"></i>
+      <% end %>
+    </div>
   </div>
   <div class="d-flex row employees">
     <% @employees.each do |employee| %>
