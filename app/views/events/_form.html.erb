@@ -1,8 +1,14 @@
 <%= simple_form_for [team, event] do |f|  %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :location %>
+  <%= f.input :title,
+              label: false,
+              input_html: { autocomplete: "email", style: "background: white;", placeholder: "Title" } %>
+  <%= f.input :description,
+              label: false,
+              input_html: { autocomplete: "email", style: "background: white;", placeholder: "Description" } %>
+  <%= f.input :location,
+              label: false,
+              input_html: { autocomplete: "email", style: "background: white;", placeholder: "Location" } %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: 'custom-button btn btn-primary' %>
 <% end %>
