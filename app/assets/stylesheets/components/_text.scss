@@ -2,7 +2,7 @@ h6 {
   color: #7B95A9;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 15px;
+  font-size: px;
   font-weight: bold;
 }
 
@@ -14,7 +14,8 @@ h3 {
   font-weight: bold;
 }
 body {
-  background-color: #E6EAED;
+  background-color: $projector;
+  // icon projector color: #8c9093
   font-family: Montserrat;
 }
 

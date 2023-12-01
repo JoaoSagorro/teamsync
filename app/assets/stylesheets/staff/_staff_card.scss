@@ -7,7 +7,7 @@
     color: #7B95A9;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 12px;
+    font-size: 1px;
     font-weight: bold;
   }
 
@@ -19,6 +19,8 @@
 .employee-card {
   background-color: $background;
   margin: 0px;
+  width: 500px;
+  height: 75px;
 
   h5 {
     font-size: 15px;
@@ -27,13 +29,17 @@
     color: #7B95A9;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: bold;
   }
 }
 
 .employees {
   margin: 15px;
+}
+
+.employee-section {
+  background-color: $background;
 }
 
 .staff-text {
@@ -49,18 +55,24 @@
 }
 
 .available {
-  color: #31c70b;
-  background-color: #E7FFE5;
+  // color: #31c70b;
+  // background-color: #E7FFE5;
+  background-color: #6ec559;
+  color: #1f5d19;
 }
 
 .injured {
-  color: #FF001E;
-  background-color: #FFE5E8;
+  // color: #FF001E;
+  // background-color: #FFE5E8;
+  background-color: #f2808e;
+  color: #68111b;
 }
 
 .limited {
-  color: #FF9900;
-  background-color: #FFF6E5;
+  // color: #FF9900;
+  // background-color: #FFF6E5;
+  background-color:rgb(243, 179, 84);
+  color: #bb7e0d;
 }
 
 a {
