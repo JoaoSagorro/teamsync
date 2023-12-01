@@ -8,22 +8,20 @@
       <%= f.input :email,
                   required: false,
                   autofocus: true,
-                  input_html: { autocomplete: "email", style: "background: white;" },
-                  label_html: { class: "h5", style: "color: #2D7D9F;" } %>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Email" }%>
       <%= f.input :password,
                   required: false,
-                  input_html: { autocomplete: "current-password", style: "background: white;" },
-                  label_html: { class: "h5", style: "color: #2D7D9F;" } %>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Password" }%>
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions justify-content-between">
+    <div class="form-actions d-flex justify-content-between">
       <%= f.button :submit, "Log in", class: "custom-button-login" %>
     </div>
   <% end %>
+<%= render "devise/shared/links" %>
 
-  <div class="mt-2">
-    <%= render "devise/shared/links" %>
-  </div>
   </div>
 </div>

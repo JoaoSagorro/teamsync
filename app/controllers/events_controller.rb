@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  helper_method :health_status
+
   def index
     @team = current_user.team
     @events = Event.where(start_date: Time.now.beginning_of_month.beginning_of_week..)
@@ -46,6 +48,18 @@ class EventsController < ApplicationController
       redirect_to team_event_path(@event.team_id, @event.id)
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def health_status
+    Player.all.map do |player|
+      if player.health == "Available"
+        "health-status available"
+      elsif player.health == "Limited"
+        "health-status limited"
+      else
+        "health-status injured"
+      end
     end
   end
 

@@ -1,0 +1,23 @@
+ <div id="today" class="first-row-dashboard col-4 bg-white max-width-30 rounded-4">
+  <div class="m-2">
+
+    <div class="row pt-2">
+      <h3 class="text-center p-2">Whats up today</h3>
+      <hr>
+    </div>
+
+    <div class="todays-events row pt-3">
+        <% @team.events.each do |event|  %>
+          <% if event.start_date.to_date == Date.today %>
+            <div class="col-8 mb-2">
+              <h5><%= event.title %></h5>
+              <h6><%= event.start_date.strftime("%H:%M")%></h6>
+            </div>
+            <div class="col-4 text-end mb-2">
+              <h6>event-type</h6>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>

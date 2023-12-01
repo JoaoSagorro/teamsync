@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/teams/:id/staff", to: "teams#staff", as: "staff"
+  get "/teams/:id/management", to: "teams#management", as: "management"
+  get "/teams/:id/chat", to: "teams#chat", as: "chat"
 
   resources :teams, only: :show do
     resources :events, except: :destroy
