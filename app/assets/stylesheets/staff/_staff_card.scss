@@ -3,17 +3,19 @@
   margin: 15px;
   margin-bottom: 20px;
   padding-left: 15px;
+
   h6 {
     color: #7B95A9;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 1px;
+    font-size: 13px;
     font-weight: bold;
   }
 
   img {
     margin-right: 10px;
   }
+
 }
 
 .employee-card {
@@ -29,7 +31,7 @@
     color: #7B95A9;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 18px;
+    font-size: 13x;
     font-weight: bold;
   }
 }
@@ -44,6 +46,7 @@
 
 .staff-text {
   margin: 25px;
+  color: #7B95A9
 }
 
 .health-status {
@@ -55,24 +58,27 @@
 }
 
 .available {
-  // color: #31c70b;
-  // background-color: #E7FFE5;
-  background-color: #6ec559;
-  color: #1f5d19;
+  color: #31c70b;
+  background-color: #E7FFE5;
+  // projector
+  // background-color: #6ec559;
+  // color: #1f5d19;
 }
 
 .injured {
-  // color: #FF001E;
-  // background-color: #FFE5E8;
-  background-color: #f2808e;
-  color: #68111b;
+  color: #FF001E;
+  background-color: #FFE5E8;
+  // projector>>>
+  // background-color: #f2808e;
+  // color: #68111b;
 }
 
 .limited {
-  // color: #FF9900;
-  // background-color: #FFF6E5;
-  background-color:rgb(243, 179, 84);
-  color: #bb7e0d;
+  color: #FF9900;
+  background-color: #FFF6E5;
+  // projector
+  // background-color:rgb(243, 179, 84);
+  // color: #bb7e0d;
 }
 
 a {
