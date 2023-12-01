@@ -8,6 +8,7 @@ class Player < ApplicationRecord
 
   validates :first_name, :last_name, :position, :birthdate, presence: true
   validates :health, inclusion: { in: HEALTH }
+  validates :note, length: { maximum: 1000 }
 
   def full_name
     first_name + " " + last_name
