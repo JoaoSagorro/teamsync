@@ -10,17 +10,17 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email", style: "background: white;" },
-                  label_html: { class: "h5", style: "color: #2D7D9F;" } %>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Email" }%>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password", style: "background: white;" },
-                  label_html: { class: "h5", style: "color: #2D7D9F;" }%>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Password" }%>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password", style: "background: white;" },
-                  label_html: { class: "h5", style: "color: #2D7D9F;" } %>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Password confirmation" }%>
     </div>
 
     <div class="form-actions">

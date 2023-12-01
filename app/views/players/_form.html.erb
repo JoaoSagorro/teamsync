@@ -17,6 +17,9 @@
     <%= f.input :birthdate,
                 input_html: { autocomplete: "email", style: "background: white;" },
                 label_html: { class: "h6", style: "color: #2D7D9F;"} %>
+    <%= f.input :note,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Note" }%>
 
     <%= f.submit class: 'custom-button btn btn-primary'%>
 <% end %>

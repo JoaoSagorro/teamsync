@@ -2,21 +2,21 @@
   <%= cl_image_tag @player.photo.key, class: "player-image"%>
   <div class="d-flex">
     <h1 class="fw-light me-3 mb-0"><%= @player.first_name %> <%= @player.last_name %></h1>
-        <div class="d-flex align-items-center">
-          <% if @player.health == "Available" %>
-            <div class="health-status available m-0">
-              <%= @player.health%>
-            </div>
-          <% elsif @player.health == "Limited" %>
-            <div class="health-status limited m-0" >
-              <%= @player.health%>
-            </div>
-          <% else %>
-            <div class="health-status injured m-0">
-              <%= @player.health%>
-            </div>
-          <% end %>
-        </div>
+      <div class="d-flex align-items-center">
+        <% if @player.health == "Available" %>
+          <div class="health-status available m-0">
+            <%= @player.health%>
+          </div>
+        <% elsif @player.health == "Limited" %>
+          <div class="health-status limited m-0" >
+            <%= @player.health%>
+          </div>
+        <% else %>
+          <div class="health-status injured m-0">
+            <%= @player.health%>
+          </div>
+        <% end %>
+      </div>
     </div>
   <div class="d-flex">
     <h3 class="my-3"><%= @player.position %></h3>
@@ -39,4 +39,9 @@
 <% end %>
   <p>Notes and calendar go here</p>
   <p><%= link_to "Edit player info", edit_team_player_path(@player) %> </p>
+
+  <h2>Note:</h2>
+  <%= @player.note %>
+
+  
 </div>

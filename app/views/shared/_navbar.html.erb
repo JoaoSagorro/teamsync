@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+<div id="navbar" class="d-flex justify-content-between navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top border-bottom-success">
   <div class="mx-2">
   <% if controller_name == 'teams' && action_name == 'show' %>
     <h1 class="ms-5 fw-light text-primary">Dashboard</h1>
@@ -11,6 +11,12 @@
   <% end %>
   <% if controller_name == 'players' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">All Players</h1>
+  <% end %>
+   <% if controller_name == 'teams' && action_name == 'management' %>
+    <h1 class="ms-5 fw-light">Management</h1>
+  <% end %>
+   <% if controller_name == 'teams' && action_name == 'chat' %>
+    <h1 class="ms-5 fw-light">Chat</h1>
   <% end %>
     </div>
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">

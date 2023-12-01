@@ -2,7 +2,9 @@
     <!-- Sidebar -->
     <nav id="sidebar" class="d-flex flex-column align-items-center justify-content-between pb-3">
         <div class="sidebar-header cool-side">
+          <%= link_to team_path(@team) do %>
             <%= image_tag "logo2", class: "company-logo" %>
+          <% end %>
         </div>
           <ul data-controller="click" class="h-50 d-flex flex-column justify-content-around align-items-center cool-side list-unstyled components">
 
@@ -32,17 +34,17 @@
             </li>
 
             <li>
-              <div class="d-flex justify-content-center align-items-center">
-                <%= link_to team_path(@team) do %>
-                  <i class="sidebar-button fa-solid fa-bars-progress" style="color: #dddddd;"></i>
+              <div class="d-flex justify-content-center align-items-center <%= controller_name == 'teams' && action_name == 'management' ? 'very-cool-side' : '' %>">
+                <%= link_to management_path(@team) do %>
+                  <i class="sidebar-button fa-solid fa-bars-progress" style="<%= controller_name == 'teams' && action_name == 'management' ? 'color: #2D7D9F' : 'color: #dddddd;' %>"></i>
                 <% end %>
               </div>
             </li>
 
             <li>
-              <div class="d-flex justify-content-center align-items-center">
-                <%= link_to team_path(@team) do %>
-                  <i class="sidebar-button fa-solid fa-comments" style="color: #dddddd;"></i>
+              <div class="d-flex justify-content-center align-items-center <%= controller_name == 'teams' && action_name == 'chat' ? 'very-cool-side' : '' %>">
+                <%= link_to chat_path(@team) do %>
+                  <i class="sidebar-button fa-solid fa-comments" style="<%= controller_name == 'teams' && action_name == 'chat' ? 'color: #2D7D9F' : 'color: #dddddd;' %>"></i>
                 <% end %>
               </div>
             </li>

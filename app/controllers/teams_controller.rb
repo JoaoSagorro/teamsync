@@ -11,4 +11,12 @@ class TeamsController < ApplicationController
     @players = Player.all
     @employees = Employee.all
   end
+
+  def management
+    @team = current_user.team
+  end
+
+  def chat
+    @team = current_user.team
+  end
 end
