@@ -16,3 +16,4 @@ class Event < ApplicationRecord
   def end_time
     self.end_date
   end
+end

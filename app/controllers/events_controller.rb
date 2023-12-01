@@ -25,6 +25,7 @@ class EventsController < ApplicationController
     @event.save
     if @event.save
       @event.player_ids = params[:event][:player_ids] || []
+      @event.employee_ids = params[:event][:employee_ids] || []
       redirect_to team_event_path(@event.team_id, @event.id)
     else
       render :new, status: :unprocessable_entity
@@ -43,6 +44,7 @@ class EventsController < ApplicationController
     @event.team = @team
     if @event.update(set_params)
       @event.player_ids = params[:event][:player_ids] || []
+      @event.employee_ids = params[:event][:employee_ids] || []
       redirect_to team_event_path(@event.team_id, @event.id)
     else
       render :edit, status: :unprocessable_entity
