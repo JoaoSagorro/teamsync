@@ -10,16 +10,16 @@ export default class extends Controller {
 
   selection(event) {
     console.log(document.querySelectorAll(".form-check-input"))
-    if (this.inputTarget.innerText === "Select All") {
+    if (this.inputTarget.innerText === "Select All Players") {
     document.querySelectorAll(".form-check-input").forEach(element => {
       element.checked = true;
       });
-      this.inputTarget.innerText = "Unselect All"
+      this.inputTarget.innerText = "Deselect"
     } else {
     document.querySelectorAll(".form-check-input").forEach(element => {
       element.checked = false;
       });
-      this.inputTarget.innerText = "Select All"
+      this.inputTarget.innerText = "Select All Players"
     }
   }
 }
