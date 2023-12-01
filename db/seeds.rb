@@ -106,6 +106,7 @@ puts 'Creating players'
 
 20.times do
   file = URI.open(images.pop)
+  player_arr = []
   player = Player.new({
     first_name: Faker::Sports::Football.player.split.first,
     last_name: Faker::Sports::Football.player.split.last,
@@ -113,6 +114,7 @@ puts 'Creating players'
     birthdate: Faker::Date.birthday(min_age: 18, max_age: 30),
     health: health()
   })
+  player_arr << player
   player.team = team
   player.photo.attach(io: file, filename: "player.png", content_type: "image/jpeg")
   player.save!
@@ -121,3 +123,56 @@ end
 puts 'All players created'
 
 puts 'Finished the seeding'
+
+event = Event.new ({
+ title: "Gym Session",
+ location: "Gym 1",
+ description: "Upper body session",
+ start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
+ end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
+ event_type: "Gym"
+}
+)
+event.team = team
+event.players = Player.all
+event.save!
+
+event = Event.new ({
+  title: "Monthly catch-up",
+  location: "Board Room",
+  description: "Discussion with coaches about players weights.",
+  start_date: DateTime.strptime("12/01/2023 12:30", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/01/2023 14:15", "%m/%d/%Y %H:%M"),
+  event_type: "Meeting"
+})
+event.team = team
+event.players = Player.all
+event.employees = Employee.all
+event.save!
+
+event = Event.new ({
+  title: "Contract Discussion",
+  location: "Head Office",
+  description: "To discuss next seasons contract",
+  start_date: DateTime.strptime("12/01/2023 16:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/01/2023 17:00", "%m/%d/%Y %H:%M"),
+  event_type: "Meeting"
+ })
+event.team = team
+event.players = [Player.first]
+# event.employees = Employee.where(role: "Coach"),
+event.save!
+
+
+event = Event.new ({
+  title: "Fulham Match",
+  location: "Anfield",
+  description: "Fulham",
+  start_date: DateTime.strptime("12/03/2023 14:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/03/2023 16:00", "%m/%d/%Y %H:%M"),
+  event_type: "Match"
+})
+event.team = team
+event.players = Player.where(health: "Available")
+event.employees = Employee.all
+event.save!
