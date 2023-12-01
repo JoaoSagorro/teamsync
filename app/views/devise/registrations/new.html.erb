@@ -1,7 +1,7 @@
-<div class="container h-100 m-5 d-flex align-items-center justify-content-center">
-  <div class="form p-5 w-50 shadow">
+<div class="container h-100 d-flex align-items-center justify-content-center">
+  <div class="form p-5 w-50 shadow mt-5 bg-white rounded-4">
 
-  <h2>Sign up</h2>
+  <h2 class="text-center text-primary">Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -10,21 +10,26 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }%>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Email" }%>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Password" }%>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Password confirmation" }%>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Sign up", class: "custom-button-signup mt-3" %>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <div class="mt-2">
+    <%= render "devise/shared/links" %>
+  </div>
   </div>
 </div>

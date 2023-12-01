@@ -1,9 +1,25 @@
 <%= simple_form_for [team, player] do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :position %>
-    <%= f.input :health %>
-    <%= f.input :availability %>
-    <%= f.input :birthdate %>
-    <%= f.submit class: 'btn btn-primary'%>
+    <%= f.input :first_name,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "First name" }%>
+    <%= f.input :last_name,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Last name" }%>
+    <%= f.input :position,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Position" }%>
+    <%= f.input :health,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Health" }%>
+    <%= f.input :availability,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Availability" }%>
+    <%= f.input :birthdate,
+                input_html: { autocomplete: "email", style: "background: white;" },
+                label_html: { class: "h6", style: "color: #2D7D9F;"} %>
+    <%= f.input :note,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Note" }%>
+
+    <%= f.submit class: 'custom-button btn btn-primary'%>
 <% end %>

@@ -1,7 +1,15 @@
 <%= simple_form_for [team, employee] do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :role %>
-    <%= f.input :birthdate %>
-    <%= f.submit class: 'btn btn-primary'%>
+    <%= f.input :first_name,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "First name" }%>
+    <%= f.input :last_name,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Last name" }%>
+    <%= f.input :role,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Role" }%>
+    <%= f.input :birthdate,
+                input_html: { autocomplete: "email", style: "background: white;" },
+                label_html: { class: "h6", style: "color: #2D7D9F;"}%>
+    <%= f.submit class: 'custom-button btn btn-primary'%>
 <% end %>
