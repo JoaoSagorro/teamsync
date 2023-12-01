@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   validates :end_date, comparison: { greater_than: :start_date }, presence: true
   validates :location, :title, :description, :start_date, presence: true
 
- def start_time
+  def start_time
     self.start_date
   end
 
