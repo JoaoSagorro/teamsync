@@ -4,15 +4,15 @@
     <h1 class="fw-light me-3 mb-0"><%= @player.first_name %> <%= @player.last_name %></h1>
       <div class="d-flex align-items-center">
         <% if @player.health == "Available" %>
-          <div class="health-status available m-0">
+          <div class="health-status available mt-2">
             <%= @player.health%>
           </div>
         <% elsif @player.health == "Limited" %>
-          <div class="health-status limited m-0" >
+          <div class="health-status limited mt-2" >
             <%= @player.health%>
           </div>
         <% else %>
-          <div class="health-status injured m-0">
+          <div class="health-status injured mt-2">
             <%= @player.health%>
           </div>
         <% end %>
@@ -26,22 +26,28 @@
   </div>
   <h4>Todays Events</h4>
   <% @events.each do |event| %>
-  <% if event.start_date.to_date == Date.today() %>
-  <div class="col-6 mb-2 p-1">
-    <div class="d-flex">
-      <div class="d-flex align-items-center me-2">
-        <h6><%= event.start_date.strftime("%H:%M")%></h6>
-        </div>
-      <h6><%= event.title %><h6>
+    <% if event.start_date.to_date == Date.today() %>
+    <div class="col-6 mb-2 p-1">
+      <div class="d-flex">
+        <div class="d-flex align-items-center me-2">
+          <h6><%= event.start_date.strftime("%H:%M")%></h6>
+          </div>
+        <h6><%= event.title %><h6>
+      </div>
     </div>
-  </div>
+    <% end %>
   <% end %>
-<% end %>
-  <p>Notes and calendar go here</p>
+  <p>Preferred side: <%= @player.preferred_side %></p>
+  <p>Nutrition Restrictions: <%= @player.nutrition_restrictions %></p>
+  <% if @player.injury_notes != "" %>
+    <p>Injury: <%= @player.injury_notes %></p>
+  <% end %>
+  <% if @player.expected_return_date != nil %>
+  <p>Expected Return Date:
+    <%= @player.expected_return_date.strftime("%d %B %Y") %></p>
+  <% end %>
+  <% if @player.note != "" %>
+    <p>Notes: <%= @player.note %>
+  <% end %>
   <p><%= link_to "Edit player info", edit_team_player_path(@player) %> </p>
-
-  <h2>Note:</h2>
-  <%= @player.note %>
-
-  
 </div>

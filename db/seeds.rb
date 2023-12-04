@@ -31,17 +31,37 @@ def health()
   end
 end
 
+def nutrition_restrictions()
+  if rand(1..10) <= 7
+    return "No restrictions"
+  else
+    return ["Nut allergy", "Ramadan", "Gluten intolerant", "Lactose free"].sample
+  end
+end
+
+injury_notes_injured = [
+  "Broken leg",
+  "Fractured foot",
+  "ACL injury",
+  "Fractured wrist"
+]
+
+injury_notes_limited = [
+  "Pubalgia",
+  "Pattelar tendinopathy",
+  "Returning from hamstring strain",
+  "First game after ACL injury"
+]
+
 puts "Deleting the database"
 Employee.destroy_all
 Player.destroy_all
 User.destroy_all
 Team.destroy_all
 
-
 puts 'Creating new seeds'
 
 puts '...'
-
 
 puts 'Creating your Team manager'
 
@@ -112,10 +132,41 @@ puts 'Creating players'
     last_name: Faker::Sports::Football.player.split.last,
     position: Faker::Sports::Football.position,
     birthdate: Faker::Date.birthday(min_age: 18, max_age: 30),
-    health: health()
+    health: health(),
+    preferred_side: ["Left", "Right"].sample,
+    nutrition_restrictions: nutrition_restrictions()
   })
   player_arr << player
   player.team = team
+  player.injury_notes =
+    case player.health
+    when "Injured"
+      injury_notes_injured.sample
+    when "Limited"
+      injury_notes_limited.sample
+    else
+      ""
+    end
+  player.expected_return_date =
+    case player.health
+    when "Injured"
+      Date.today + rand(5..10)
+    else
+      ""
+    end
+  player.note =
+    case player.injury_notes
+    when "Pubalgia"
+      "Limit number of change of direction and finalization drills"
+    when "Pattelar tendinopathy"
+      "Limit the number change of direction drills"
+    when "Returning from hamstring strain"
+      "Just 80% of max sprint distance"
+    when injury_notes_limited == "First game after ACL injury"
+      "Max of 25min playing"
+    else
+      ""
+    end
   player.photo.attach(io: file, filename: "player.png", content_type: "image/jpeg")
   player.save!
 end
@@ -124,15 +175,14 @@ puts 'All players created'
 
 puts 'Finished the seeding'
 
-event = Event.new ({
- title: "Gym Session",
- location: "Gym 1",
- description: "Upper body session",
- start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
- end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
- event_type: "Gym"
-}
-)
+event = Event.new({
+  title: "Gym Session",
+  location: "Gym 1",
+  description: "Upper body session",
+  start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
+  event_type: "Gym"
+})
 event.team = team
 event.players = Player.all
 event.save!
@@ -162,7 +212,6 @@ event.team = team
 event.players = [Player.first]
 # event.employees = Employee.where(role: "Coach"),
 event.save!
-
 
 event = Event.new ({
   title: "Fulham Match",

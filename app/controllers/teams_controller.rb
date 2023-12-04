@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
     @players = Player.where(health: "Injured").or Player.where(health: "Limited")
     # @players = @players.slice(0, 4)
     @events = Event.where(event_type: "Match")
+    @notifications = Notification.order(created_at: :desc)
   end
 
   def staff
