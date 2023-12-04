@@ -2,7 +2,7 @@ class Player < ApplicationRecord
   belongs_to :team
   has_many :event_players, dependent: :destroy
   has_many :events, through: :event_players
-  has_many :notifications
+  has_many :notifications, dependent: :destroy
   has_one_attached :photo
   after_update :create_notifications
 

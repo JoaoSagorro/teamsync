@@ -53,6 +53,13 @@ injury_notes_limited = [
   "First game after ACL injury"
 ]
 
+player_notes = {
+  "Pubalgia" => "Limit number of change of direction and finalization drills",
+  "Pattelar tendinopathy" => "Limit the number change of direction drills",
+  "Returning from hamstring strain" => "Just 80% of max sprint distance",
+  "First game after ACL injury" => "Max of 25min playing"
+}
+
 puts "Deleting the database"
 Employee.destroy_all
 Player.destroy_all
@@ -154,19 +161,7 @@ puts 'Creating players'
     else
       ""
     end
-  player.note =
-    case player.injury_notes
-    when "Pubalgia"
-      "Limit number of change of direction and finalization drills"
-    when "Pattelar tendinopathy"
-      "Limit the number change of direction drills"
-    when "Returning from hamstring strain"
-      "Just 80% of max sprint distance"
-    when injury_notes_limited == "First game after ACL injury"
-      "Max of 25min playing"
-    else
-      ""
-    end
+  player.note = player_notes[player.injury_notes]
   player.photo.attach(io: file, filename: "player.png", content_type: "image/jpeg")
   player.save!
 end
