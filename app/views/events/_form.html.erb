@@ -13,15 +13,55 @@
                 input_html: { autocomplete: "email", style: "background: white;", placeholder: "Location" } %>
     <%= f.input :event_type,
                 label: false,
+                collection: Event::EVENT_TYPE,
+                prompt: "Event Type",
                 input_html: { autocomplete: "email", style: "background: white;", placeholder: "Event Type" }%>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.association :players, as: :check_boxes, label_method: :full_name, value_method: :id, input_html: { multiple: true }, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+    <%= f.input :opposition,
+                label: false,
+                collection: Event::OPPONENTS.keys,
+                prompt: "Opposition",
+                input_html: { autocomplete: "email", style: "background: white;" }%>
+    <%= f.input :start_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } } %>
+    <%= f.association :players,
+                      collection: Player.where(health: "Available"),
+                      as: :check_boxes,
+                      label_method: :full_name,
+                      value_method: :id,
+                      input_html: { multiple: true },
+                      input_html: { class: "tag-selector-available player" },
+                      item_wrapper_class: 'tag-item' %>
+    <%= f.association :players,
+                      legend_tag: false,
+                      collection: Player.where(health: "Limited"),
+                      as: :check_boxes,
+                      label_method: :full_name,
+                      value_method: :id,
+                      input_html: { multiple: true },
+                      input_html: { class: "tag-selector-limited player" },
+                      item_wrapper_class: 'tag-item' %>
+    <%= f.association :players,
+                      legend_tag: false,
+                      collection: Player.where(health: "Injured"),
+                      as: :check_boxes,
+                      label_method: :full_name,
+                      value_method: :id,
+                      input_html: { multiple: true },
+                      input_html: { class: "tag-selector-injured player" },
+                      item_wrapper_class: 'tag-item' %>
     <div class="select-all" data-select-all-target="input" data-action="click->select-all#selection">
-      Select All
+      Select All Players
     </div>
+    <%= f.association :employees, as: :check_boxes, label_method: :employee_full_name, value_method: :id, input_html: { multiple: true }, input_html: { class: "tag-selector employee" }, item_wrapper_class: 'tag-item' %>
+      <div class="select-all" data-select-all-target="employee" data-action="click->select-all#employee_selection">
+        Select All Employees
+      </div>
     <div>
-      <%= f.button :submit, class: 'custom-button btn btn-primary' %>
+    <%= f.button :submit, class: 'custom-button btn btn-primary' %>
     </div>
   <% end %>
 

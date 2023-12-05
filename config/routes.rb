@@ -17,6 +17,11 @@ Rails.application.routes.draw do
 
   resources :teams, only: :show do
     resources :management, only: [:index, :show]
+
+    resources :chatrooms do
+      resources :messages, only: :create
+    end
+
     resources :events, except: :destroy
     resources :players, except: :destroy
     resources :employees, except: :destroy

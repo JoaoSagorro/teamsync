@@ -51,6 +51,8 @@ class TeamsController < ApplicationController
     end
 
     @cost_chart_data = cost_chart_data
+    @events = Event.where(event_type: "Match")
+    @notifications = Notification.order(created_at: :desc)
   end
 
   def staff
@@ -59,11 +61,12 @@ class TeamsController < ApplicationController
     @employees = Employee.all
   end
 
-  def management
+  def chatrooms
     @team = current_user.team
+    @chatrooms = Chatroom.all
   end
 
-  def chat
+  def management
     @team = current_user.team
   end
 end

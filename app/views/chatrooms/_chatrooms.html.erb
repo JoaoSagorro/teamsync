@@ -1,0 +1,23 @@
+<div class="chatrooms-div  d-flex justify-content-center">
+  <div class=" d-flex flex-column">
+    <div class=" d-flex justify-content-between">
+      <h3 class="text-center pt-3">Chatrooms</h3>
+      <div class=" d-flex align-items-center ">
+        <%= link_to new_team_chatroom_path(@team) do %>
+          <i class="fa-solid fa-circle-plus fa-2x m-2" style="color: #FFFFFF;"></i>
+        <% end %>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex flex-column align-items-center">
+      <% @chatrooms.each do |chatroom| %>
+        <div class="my-2 rooms-name rounded-4 d-flex justify-content-center w-100" style="<%= chatroom.id == params[:id].to_i ? 'background-color: #2D7D9F' : 'background-color:  #D9D9D9;' %>">
+          <%= link_to chatroom.name, team_chatroom_path(@team, chatroom) %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+
+</div>
