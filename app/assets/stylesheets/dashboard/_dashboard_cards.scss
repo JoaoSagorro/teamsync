@@ -40,7 +40,25 @@
   }
 }
 
+.games {
+  height: 300px;
+  overflow-y: auto;
+}
 
 .team-crest img {
   width: 40px;
+}
+
+.home {
+    border-radius: 20px;
+    background-color: $light-blue;
+    color: $primary;
+    border: 1px solid $primary;
+}
+
+.away {
+  border-radius: 20px;
+  background-color: rgb(219, 216, 216);
+  color: grey;
+  border: 1px solid grey;
 }
