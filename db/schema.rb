@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_01_124421) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_04_122422) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,19 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_124421) do
     t.index ["team_id"], name: "index_events_on_team_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "column_name"
+    t.string "old_value"
+    t.string "new_value"
+    t.string "message"
+    t.bigint "player_id"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_notifications_on_player_id"
+    t.index ["team_id"], name: "index_notifications_on_team_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -95,6 +108,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_124421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "note"
+    t.string "preferred_side"
+    t.string "injury_notes"
+    t.string "nutrition_restrictions"
+    t.datetime "expected_return_date"
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 
@@ -132,6 +149,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_01_124421) do
   add_foreign_key "event_players", "events"
   add_foreign_key "event_players", "players"
   add_foreign_key "events", "teams"
+  add_foreign_key "notifications", "players"
+  add_foreign_key "notifications", "teams"
   add_foreign_key "players", "teams"
   add_foreign_key "teams", "users"
 end

@@ -3,6 +3,7 @@
   margin: 15px;
   margin-bottom: 20px;
   padding-left: 15px;
+  height: 140px;
 
   h6 {
     color: #7B95A9;
@@ -10,6 +11,10 @@
     letter-spacing: 2px;
     font-size: 13px;
     font-weight: bold;
+  }
+
+  h5 {
+    font-size: 17px;
   }
 
   img {
@@ -46,7 +51,6 @@
 
 .staff-text {
   margin: 25px;
-  color: #7B95A9
 }
 
 .health-status {
@@ -54,7 +58,7 @@
   width: 120px;
   height: 25px;
   text-align: center;
-  margin-top: 20px;
+  // margin-top: 20px;
 }
 
 .available {
