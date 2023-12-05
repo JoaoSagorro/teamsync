@@ -35,6 +35,15 @@ puts 'Creating new seeds'
 
 puts '...'
 
+puts 'Creating your Team manager'
+
+user = User.new({ email: 'team.manager@liverpool.com', password: '123456789', first_name: "Joao", last_name: "Sagorro" })
+user.save!
+
+puts 'User has been created'
+
+puts '...'
+
 puts 'Creating the team'
 
 team = Team.new(
