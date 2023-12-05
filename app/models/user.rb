@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :team, dependent: :destroy
+  belongs_to :team
   has_many :messages, dependent: :destroy
   has_many :notifications, dependent: :destroy
 

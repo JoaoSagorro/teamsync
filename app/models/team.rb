@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_many :user
+  has_many :user, dependent: :destroy
   has_many :players, dependent: :destroy
   has_many :employees, dependent: :destroy
   has_many :events, dependent: :destroy

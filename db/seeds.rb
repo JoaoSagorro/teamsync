@@ -26,8 +26,8 @@ images = [
 puts "Deleting the database"
 Employee.destroy_all
 Player.destroy_all
-User.destroy_all
 Team.destroy_all
+User.destroy_all
 Game.destroy_all
 Cost.destroy_all
 

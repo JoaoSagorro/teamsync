@@ -1,12 +1,10 @@
-<div class="">
-  <% @chatrooms.each do |chatroom| %>
-    <%= link_to chatroom.name, team_chatroom_path(@team, chatroom) %>
-    <%= chatroom.team_id %>
-  <% end %>
-<div>
+<div class="chatrooms-index bg-white rounded-4 d-flex justify-content-around ms-2 me-2">
+  <%= render 'chatrooms', class: "" %>
+  <div class="chat-div ">
+    <h3 class="text-center pt-3">Chat</h3>
+    <hr>
+    <div class="text-center p-3">
 
-<div>
-  <%= link_to new_team_chatroom_path(@team) do %>
-    <i class="fa-solid fa-circle-plus fa-4x m-2" style="color: #ffffff;"></i>
-  <% end %>
+      </div>
+  </div>
 </div>
