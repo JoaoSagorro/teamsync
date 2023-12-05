@@ -30,14 +30,31 @@
   height: 400px;
   max-height: 400px;
   overflow-y: auto;
+  background-color: #E6EAED;
 }
 
 .message-container {
   width: 600px;
+
 }
 
 .chatrooms-div {
   width: 300px;
+}
+
+.rooms-name:hover {
+    box-shadow: 3px 3px 15px $primary-color;
+}
+
+.rooms-name {
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: white;
+  }
+  // background-color: $icons;
 }
 
 .chat-div {
