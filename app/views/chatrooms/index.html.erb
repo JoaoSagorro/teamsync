@@ -1,6 +1,12 @@
-<h1>HELLO</h1>
+<div class="">
+  <% @chatrooms.each do |chatroom| %>
+    <%= link_to chatroom.name, team_chatroom_path(@team, chatroom) %>
+    <%= chatroom.team_id %>
+  <% end %>
+<div>
 
-<% @chatrooms.each do |chatroom| %>
-  <%= link_to chatroom.name, team_chatroom_path(@team, chatroom) %>
-  <%= chatroom.team_id %>
-<% end %>
+<div>
+  <%= link_to new_team_chatroom_path(@team) do %>
+    <i class="fa-solid fa-circle-plus fa-4x m-2" style="color: #ffffff;"></i>
+  <% end %>
+</div>
