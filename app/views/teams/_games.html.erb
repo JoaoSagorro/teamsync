@@ -8,7 +8,7 @@
 
     <div class="row align-items-center pt-3">
     <% @events.each do |event| %>
-      <div class="col-6">
+      <div class="col-5">
         <div class="row ps-4">
           <div class="d-flex">
             <i class="fa-regular fa-calendar" style="color: #92bfca;"></i>
@@ -21,25 +21,29 @@
         </div>
       </div>
 
-      <%# <div class="col-2">
+      <div class="col-2 p-2">
         <div class="bg-light rounded-4">
           <div class="row">
-            <%# <h6 class="text-center p-2">Liverpool</h6>
-            <h6 class="text-center">VS</h6>
-            <h6 class="text-center p-2"><%= event.description %>
-          <%# </div>
+            <div class="team-crest text-center pb-2">
+              <img src="https://resources.premierleague.com/premierleague/badges/rb/t14.svg">
+            </div>
+            <h6 class="text-center">vs</h6>
+            <div class="team-crest text-center">
+              <%#= image_tag Event::OPPONENTS[event.opposition]%>
+            </div>
         </div>
-      </div> %>
+        </div>
+      </div>
 
-      <div class="col-6">
+      <div class="col-5">
         <div class="row pe-4">
           <h6 class="text-center">Liverpool</h6>
         </div>
         <div class="row pe-4">
-            <h6 class="text-center">VS</h6>
+            <h6 class="text-center"> </h6>
         </div>
         <div class="row pe-4">
-          <h6 class="text-center"><%= event.description %></h6>
+          <h6 class="text-center"><%= event.opposition %></h6>
         </div>
       </div>
       <% end %>
