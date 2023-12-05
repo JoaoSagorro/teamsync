@@ -15,14 +15,14 @@
   <% if controller_name == 'players' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">All Players</h1>
   <% end %>
-   <% if controller_name == 'teams' && action_name == 'management' %>
+   <% if controller_name == 'management' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">Management</h1>
   <% end %>
    <% if controller_name == 'teams' && action_name == 'chat' %>
     <h1 class="ms-5 fw-light text-primary">Chat</h1>
   <% end %>
   <% if controller_name == 'chatrooms' && action_name == 'index' %>
-    <h1 class="ms-5 fw-light text-primary">Chat groups</h1>
+    <h1 class="ms-5 fw-light text-primary">Message Inbox</h1>
   <% end %>
   <% if controller_name == 'chatrooms' && action_name == 'show' %>
     <h1 class="ms-5 fw-light text-primary">#<%= @chatroom.name %></h1>
@@ -37,5 +37,5 @@
         <%= image_tag "liverpool_logo.png", class: "logo", position: :sticky %>
       </a>
   </nav>
-  
+
 </div>
