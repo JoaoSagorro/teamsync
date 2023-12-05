@@ -13,7 +13,14 @@
                 input_html: { autocomplete: "email", style: "background: white;", placeholder: "Location" } %>
     <%= f.input :event_type,
                 label: false,
+                collection: Event::EVENT_TYPE,
+                prompt: "Event Type",
                 input_html: { autocomplete: "email", style: "background: white;", placeholder: "Event Type" }%>
+    <%= f.input :opposition,
+                label: false,
+                collection: Event::OPPONENTS.keys,
+                prompt: "Opposition",
+                input_html: { autocomplete: "email", style: "background: white;" }%>
     <%= f.input :start_date,
                 as: :string,
                 input_html: { data: { controller: "datepicker" } } %>

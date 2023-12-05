@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+# gem "blazer"
+gem "chartkick"
+
 gem 'faker'
 
 gem "simple_calendar", "~> 2.4"

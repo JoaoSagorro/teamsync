@@ -8,18 +8,29 @@
     <%= f.input :position,
                 label: false,
                 input_html: { autocomplete: "email", style: "background: white;", placeholder: "Position" }%>
+    <%= f.input :birthdate,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } },
+                label_html: { class: "h6", style: "color: #2D7D9F;"} %>
     <%= f.input :health,
                 label: false,
                 input_html: { autocomplete: "email", style: "background: white;", placeholder: "Health" }%>
-    <%= f.input :availability,
+    <%= f.input :injury_notes,
                 label: false,
-                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Availability" }%>
-    <%= f.input :birthdate,
-                input_html: { autocomplete: "email", style: "background: white;" },
-                label_html: { class: "h6", style: "color: #2D7D9F;"} %>
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Injury Notes" }%>
+    <%= f.input :nutrition_restrictions,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Nutrition Restrictions" }%>
+    <%= f.input :preferred_side,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Preferred Side" }%>
     <%= f.input :note,
                 label: false,
-                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Note" }%>
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Notes" }%>
+    <%= f.input :expected_return_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } },
+                label_html: { class: "h6", style: "color: #2D7D9F;"} %>
 
     <%= f.submit class: 'custom-button btn btn-primary'%>
 <% end %>

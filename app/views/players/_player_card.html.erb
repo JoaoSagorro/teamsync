@@ -6,15 +6,15 @@
         <h5><%= player.first_name %> <%= player.last_name %></h5>
         <h6><%= player.position %></h6>
         <% if player.health == "Available" %>
-          <div class="health-status available">
+          <div class="health-status available mt-3 mb-1">
             <%= player.health%>
           </div>
         <% elsif player.health == "Limited" %>
-          <div class="health-status limited" >
+          <div class="health-status limited mt-3 mb-1" >
             <%= player.health%>
           </div>
         <% else %>
-          <div class="health-status injured">
+          <div class="health-status injured mt-3 mb-1">
             <%= player.health%>
           </div>
         <% end %>
