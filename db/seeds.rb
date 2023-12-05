@@ -31,11 +31,21 @@ def health()
   end
 end
 
+def outcome()
+  if rand(1..10) <= 7
+    return "Win"
+  else
+    return ["Draw", "Loss"].sample
+  end
+end
+
 puts "Deleting the database"
 Employee.destroy_all
 Player.destroy_all
 User.destroy_all
 Team.destroy_all
+Game.destroy_all
+Cost.destroy_all
 
 
 puts 'Creating new seeds'
@@ -54,12 +64,15 @@ puts '...'
 
 puts 'Creating the team'
 
-team = Team.new({
+team = Team.new(
+  {
     name: 'Liverpool Football club',
     sport: 'Football',
     stadium: 'Anfield',
     address: 'Anfield Rd, Anfield, Liverpool L4 0TH, United Kingdom',
-    budget: 10_000_000})
+    budget: 10_000_000
+  }
+)
 team.user = user
 team.save!
 
@@ -121,3 +134,61 @@ end
 puts 'All players created'
 
 puts 'Finished the seeding'
+
+require 'faker'
+
+15.times do
+  game = Game.new(
+    date: Faker::Date.between(from: 2.month.ago, to: Date.today),
+    location: ["Home", "Away"].sample,
+    outcome: outcome(),
+    opposition:
+      ["Arsenal",
+      "Aston Villa",
+      "Bournemouth",
+      "Brentford",
+      "Brighton & Hove Albion",
+      "Burnley",
+      "Chelsea",
+      "Crystal Palace",
+      "Everton",
+      "Fulham",
+      "Luton Town",
+      "Manchester City",
+      "Manchester United",
+      "Newcastle United",
+      "Nottingham Forest",
+      "Sheffield United",
+      "Tottenham Hotspur",
+      "West Ham United",
+      "Wolverhampton Wanderers"].sample
+  )
+  game.team = team
+  game.score =
+    case game.outcome
+    when "Win"
+      3
+    when "Loss"
+      0
+    when "Draw"
+      1
+    end
+    # scores = {
+    #   "Win" => 3,
+    #   "Loss" => 0,
+    #   "Draw" => 1
+    # }
+  game.save!
+end
+
+30.times do
+  cost = Cost.new(
+    team:,
+    date: Faker::Date.between(from: 6.months.ago, to: Date.today),
+    description: Faker::Lorem.sentence,
+    amount: Faker::Number.within(range: 1000..5000)
+  )
+
+  cost.remaining_budget = team.budget - cost.amount
+  cost.save!
+end
