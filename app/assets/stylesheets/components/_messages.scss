@@ -7,7 +7,6 @@
 
 // To style the message itself
 .sender-style, .receiver-style {
-  // border: 1px solid black;
   width: 70%;
   max-width: 400px;
   border-radius: 4px;
@@ -16,13 +15,35 @@
 }
 
 .sender-style {
-  // border: 1px solid black;
   background-color: $primary-color;
+  display: flex;
+  justify-content: end;
+  text-align: end;
+
+  .message-color {
+    color: black;
+  }
+
+  .date-stamp {
+    color: $search-field;
+    font-size: 10px;
+  }
 }
 
 .receiver-style {
-  // border: 1px solid black;
-  background-color: lightblue;
+  background-color: #2d7d9f6d;
+  display: flex;
+  justify-content: start;
+  text-align: start;
+
+  .message-color {
+    color: black;
+  }
+
+  .date-stamp {
+    color: $search-field;
+    font-size: 10px;
+  }
 }
 
 .chat-container {
@@ -30,6 +51,7 @@
   height: 400px;
   max-height: 400px;
   overflow-y: auto;
+  background-color: #E6EAED;
 }
 
 .message-container {
@@ -38,6 +60,21 @@
 
 .chatrooms-div {
   width: 300px;
+}
+
+.rooms-name:hover {
+    box-shadow: 3px 3px 15px $primary-color;
+}
+
+.rooms-name {
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: white;
+  }
+  // background-color: $icons;
 }
 
 .chat-div {

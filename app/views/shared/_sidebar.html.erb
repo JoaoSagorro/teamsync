@@ -43,7 +43,7 @@
 
             <li>
               <div class="d-flex justify-content-center align-items-center <%= controller_name == 'teams' && action_name == 'chat' ? 'very-cool-side' : '' %>">
-                <%= link_to team_chatrooms_path(@team) do %>
+                <%= link_to team_chatroom_path(@team, @team.chatrooms.first) do %>
                   <i class="sidebar-button fa-solid fa-comments" style="<%= controller_name == 'teams' && action_name == 'chat' ? 'color: #2D7D9F' : 'color: #D9D9D9;' %>"></i>
                 <% end %>
               </div>
