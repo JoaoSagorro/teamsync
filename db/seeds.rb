@@ -35,9 +35,6 @@ puts 'Creating new seeds'
 
 puts '...'
 
-
-
-
 puts 'Creating your Team manager'
 
 user = User.new({ email: 'team.manager@liverpool.com', password: '123456789', first_name: "Joao", last_name: "Sagorro" })
@@ -196,7 +193,8 @@ event = Event.new ({
   start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
   end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
   event_type: "Gym"
-  
+})
+
 scores = {
   "Win" => 3,
   "Loss" => 0,

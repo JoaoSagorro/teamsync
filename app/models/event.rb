@@ -35,7 +35,14 @@ class Event < ApplicationRecord
   # validates :opposition, inclusion: { in: OPPONENTS.keys }
   validates :event_type, inclusion: { in: EVENT_TYPE }
 
+  validate :opposition_presence_for_match_event
 
+  def opposition_presence_for_match_event
+    if event_type == "Match" && !opposition.present?
+      errors.add(:opposition, "is required for match events")
+    end
+  end
+  
   def start_time
     self.start_date
   end

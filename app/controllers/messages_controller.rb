@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
           sender_id: @message.user.id
         )
         head :ok
+        Notification.create!(team: @team, column_name: "New Message", new_value: @message.chatroom.name)
       else
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace('message-form', partial: "chatrooms/message",
