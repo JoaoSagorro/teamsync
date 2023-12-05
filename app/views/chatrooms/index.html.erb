@@ -1,0 +1,6 @@
+<h1>HELLO</h1>
+
+<% @chatrooms.each do |chatroom| %>
+  <%= link_to chatroom.name, team_chatroom_path(@team, chatroom) %>
+  <%= chatroom.team_id %>
+<% end %>

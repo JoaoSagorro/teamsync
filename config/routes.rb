@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get "/teams/:id/chat", to: "teams#chat", as: "chat"
 
   resources :teams, only: :show do
+    resources :chatrooms do
+      resources :messages, only: :create
+    end
     resources :events, except: :destroy
     resources :players, except: :destroy
     resources :employees, except: :destroy

@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
     @players = Player.where(health: "Injured").or Player.where(health: "Limited")
     # @players = @players.slice(0, 4)
     @events = Event.where(event_type: "Match")
+
   end
 
   def staff
@@ -13,11 +14,8 @@ class TeamsController < ApplicationController
     @employees = Employee.all
   end
 
-  def management
+  def chatrooms
     @team = current_user.team
-  end
-
-  def chat
-    @team = current_user.team
+    @chatrooms = Chatroom.all
   end
 end

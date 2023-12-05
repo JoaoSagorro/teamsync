@@ -125,12 +125,12 @@ puts 'All players created'
 puts 'Finished the seeding'
 
 event = Event.new ({
- title: "Gym Session",
- location: "Gym 1",
- description: "Upper body session",
- start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
- end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
- event_type: "Gym"
+  title: "Gym Session",
+  location: "Gym 1",
+  description: "Upper body session",
+  start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
+  event_type: "Gym"
 }
 )
 event.team = team
