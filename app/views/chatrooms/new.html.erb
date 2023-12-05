@@ -1,0 +1,8 @@
+<h1>CHAT FORM GOES HERE</h1>
+
+<%= simple_form_for [@team, @chatroom] do |f| %>
+    <%= f.input :name,
+                label: false,
+                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Title" } %>
+    <%= f.submit class: 'btn btn-primary' %>
+<% end %>

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_one :team, dependent: :destroy
+  belongs_to :team, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

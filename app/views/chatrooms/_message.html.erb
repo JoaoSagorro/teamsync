@@ -1,5 +1,5 @@
-<div id="message-<%= message.id %>" class="border-div">
-  <small class="border-div w-100">
+<div id="message-<%= message.id %>" class="">
+  <small class="w-100">
     <strong><%= message.user.full_name %></strong>
     <% if message.valid? %>
       <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>

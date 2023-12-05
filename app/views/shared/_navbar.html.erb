@@ -3,8 +3,11 @@
   <% if controller_name == 'teams' && action_name == 'show' %>
     <h1 class="ms-5 fw-light text-primary">Dashboard</h1>
   <% end %>
-    <% if controller_name == 'events' && action_name == 'index' %>
+  <% if controller_name == 'events' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">Calendar</h1>
+  <% end %>
+  <% if controller_name == 'events' && action_name == 'show' %>
+    <h1 class="ms-5 fw-light text-primary">Event</h1>
   <% end %>
   <% if controller_name == 'teams' && action_name == 'staff' %>
     <h1 class="ms-5 fw-light text-primary">Team Overview</h1>
@@ -17,6 +20,12 @@
   <% end %>
    <% if controller_name == 'teams' && action_name == 'chat' %>
     <h1 class="ms-5 fw-light text-primary">Chat</h1>
+  <% end %>
+  <% if controller_name == 'chatrooms' && action_name == 'index' %>
+    <h1 class="ms-5 fw-light text-primary">Chat groups</h1>
+  <% end %>
+  <% if controller_name == 'chatrooms' && action_name == 'show' %>
+    <h1 class="ms-5 fw-light text-primary">#<%= @chatroom.name %></h1>
   <% end %>
     </div>
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">

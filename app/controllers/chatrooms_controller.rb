@@ -6,12 +6,14 @@ class ChatroomsController < ApplicationController
   end
 
   def show
+    @chatrooms = Chatroom.all
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
   end
 
   def new
     @chatroom = Chatroom.new
+    @team = Team.find(params[:team_id])
   end
 
   def create
@@ -19,7 +21,7 @@ class ChatroomsController < ApplicationController
     @chatroom.team = @team
     @chatroom.save
     if @chatroom.save
-      @chatroom.team_id = params[:id][:team_id] || []
+      @chatroom.team_id = params[:team_id] || []
       redirect_to team_chatrooms_path(@chatroom.team_id, @chatroom.id)
     else
       render :new, status: :unprocessable_entity

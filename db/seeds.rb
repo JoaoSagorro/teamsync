@@ -35,18 +35,6 @@ puts 'Creating new seeds'
 
 puts '...'
 
-
-
-
-puts 'Creating your Team manager'
-
-user = User.new({ email: 'team.manager@liverpool.com', password: '123456789', first_name: "Joao", last_name: "Sagorro" })
-user.save!
-
-puts 'User has been created'
-
-puts '...'
-
 puts 'Creating the team'
 
 team = Team.new(
@@ -58,10 +46,29 @@ team = Team.new(
     budget: 10_000_000
   }
 )
-team.user = user
 team.save!
 
 puts 'Team created'
+
+puts '...'
+
+puts 'Creating your Team manager'
+
+team_manager = User.new({ email: 'team.manager@liverpool.com', password: '123456789', first_name: "Joao", last_name: "Sagorro" })
+team_manager.team = team
+team_manager.save!
+
+puts 'Team manager has been created'
+
+puts '...'
+
+puts 'Creating Head Coach'
+
+head_coach = User.new({ email: 'head.coach@liverpool.com', password: '123456789', first_name: "Bernado", last_name: "Ralao" })
+head_coach.team = team
+head_coach.save!
+
+puts 'Head coach has been created'
 
 puts '...'
 
@@ -196,34 +203,13 @@ event = Event.new ({
   start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
   end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
   event_type: "Gym"
-  
+})
+
 scores = {
   "Win" => 3,
   "Loss" => 0,
   "Draw" => 1
 }
-
-# opponents = [
-#   "Arsenal",
-#   "Aston Villa",
-#   "Bournemouth",
-#   "Brentford",
-#   "Brighton & Hove Albion",
-#   "Burnley",
-#   "Chelsea",
-#   "Crystal Palace",
-#   "Everton",
-#   "Fulham",
-#   "Luton Town",
-#   "Manchester City",
-#   "Manchester United",
-#   "Newcastle United",
-#   "Nottingham Forest",
-#   "Sheffield United",
-#   "Tottenham Hotspur",
-#   "West Ham United",
-#   "Wolverhampton Wanderers"
-# ]
 
 15.times do
   game = Game.new(

@@ -1,33 +1,35 @@
-<div class="bg-white rounded-4 justify-content-center ms-2 me-2">
-  <h3 class="text-center pt-3">Chat</h3>
-  <hr>
-  <div class="text-center p-3">
-    <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-      <h1>#<%= @chatroom.name %></h1>
+<div class="border-div bg-white rounded-4 d-flex justify-content-around ms-2 me-2">
+  <%= render 'chatrooms', class: "border-div" %>
+  <div class="chat-div border-div">
+    <h3 class="text-center pt-3">Chat</h3>
+    <hr>
+    <div class="text-center p-3">
+      <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-      <div class="chat-container messages" id="scroll-down" data-chatroom-subscription-target="messages">
-        <% @chatroom.messages.each do |message| %>
-          <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-            <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %> rounded-4">
-              <%= render "chatrooms/message", message: message %>
+        <div class="chat-container messages" id="scroll-down" data-chatroom-subscription-target="messages">
+          <% @chatroom.messages.each do |message| %>
+            <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+              <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %> rounded-4">
+                <%= render "chatrooms/message", message: message %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="messsage-form" data-controller="chatroom-subscription" class="d-flex justify-content-center rounded-4 bg-white">
-    <%= simple_form_for [@team, @chatroom, @message],
-      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "chat-form d-flex" } do |f|
-    %>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Message ##{@chatroom.name}",
-        wrapper_html: {class: "message-container"}
+    <div id="messsage-form" data-controller="chatroom-subscription" class="d-flex justify-content-center rounded-4 bg-white">
+      <%= simple_form_for [@team, @chatroom, @message],
+        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "chat-form d-flex" } do |f|
       %>
-      <%= button_tag type: 'submit', class: "btn btn-primary mb-3" do %>
-        <i class="fa-solid fa-paper-plane" style="color: #FFFFFF;"></i>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Message ##{@chatroom.name}",
+          wrapper_html: {class: "message-container"}
+        %>
+        <%= button_tag type: 'submit', class: "btn btn-primary mb-3" do %>
+          <i class="fa-solid fa-paper-plane" style="color: #FFFFFF;"></i>
+        <% end %>
       <% end %>
-    <% end %>
+      </div>
   </div>
 </div>
