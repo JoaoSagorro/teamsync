@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_05_123712) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_154219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -186,13 +186,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_123712) do
     t.string "column_name"
     t.string "old_value"
     t.string "new_value"
-    t.string "message"
     t.bigint "player_id"
     t.bigint "team_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "message_id"
+    t.string "note"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
     t.index ["player_id"], name: "index_notifications_on_player_id"
     t.index ["team_id"], name: "index_notifications_on_team_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -269,8 +273,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_123712) do
   add_foreign_key "games", "teams"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "messages"
   add_foreign_key "notifications", "players"
   add_foreign_key "notifications", "teams"
+  add_foreign_key "notifications", "users"
   add_foreign_key "players", "teams"
   add_foreign_key "team_chatrooms", "chatrooms"
   add_foreign_key "team_chatrooms", "teams"

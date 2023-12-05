@@ -32,13 +32,13 @@ class PlayersController < ApplicationController
   def update
     @player.update(player_params)
     if @player.saved_change_to_health?
-      Notification.create!(team: @team, player: @player, column_name: "Health Update", new_value: @player.health)
+      Notification.create!(team: @team, player: @player, note: "Health Update", column_name: "Player")
     elsif @player.saved_change_to_note?
-      Notification.create!(team: @team, player: @player, column_name: "Player Update", new_value: @player.note)
+      Notification.create!(team: @team, player: @player, note: "Player Update", column_name: "Player")
     elsif @player.saved_change_to_nutrition_restrictions?
-      Notification.create!(team: @team, player: @player, column_name: "Nutrition Update", new_value: @player.nutrition_restrictions)
+      Notification.create!(team: @team, player: @player, note: "Nutrition Update", column_name: "Player")
     elsif @player.saved_change_to_expected_return_date?
-      Notification.create!(team: @team, player: @player, column_name: "Return Update", new_value: @player.expected_return_date)
+      Notification.create!(team: @team, player: @player, note: "Return Update", column_name: "Player" )
     end
     redirect_to team_player_path(@player)
     @player.save

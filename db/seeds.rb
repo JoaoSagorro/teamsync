@@ -35,6 +35,13 @@ puts 'Creating new seeds'
 
 puts '...'
 
+puts 'Creating your Team manager'
+
+
+puts 'User has been created'
+
+puts '...'
+
 puts 'Creating the team'
 
 team = Team.new(

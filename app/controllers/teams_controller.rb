@@ -18,4 +18,8 @@ class TeamsController < ApplicationController
     @team = current_user.team
     @chatrooms = Chatroom.all
   end
+
+  def management
+    @team = current_user.team
+  end
 end

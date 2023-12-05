@@ -16,10 +16,11 @@ class MessagesController < ApplicationController
       else
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace('message-form', partial: "chatrooms/message",
-          locals: { message: @message }, status: :unprocessable_entity)
-        }
-        # render "chatrooms/show", status: :unprocessable_entity
-      end
+            locals: { message: @message }, status: :unprocessable_entity)
+          }
+          # render "chatrooms/show", status: :unprocessable_entity
+        end
+      Notification.create!(team: current_user.team, user: @message.user, message: @message, column_name: "Message", note: "New Message" )
     end
   end
 
