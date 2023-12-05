@@ -94,7 +94,6 @@ puts 'Team created'
 
 puts '...'
 
-
 puts 'Creating Employees'
 roles = [
   'Coach',

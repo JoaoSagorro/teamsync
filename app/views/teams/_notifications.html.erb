@@ -9,10 +9,22 @@
         <% @notifications.each do |notification| %>
           <div class="row pt-3 align-middle">
             <div class="col-2">
-              <i class="sidebar-button fa-solid fa-comments pt-2" style="color: #D9D9D9;"></i>
+            <% if notification.column_name == "Health Update" %>
+                <i class="sidebar-button fa-solid fa-notes-medical pt-2" style="color: #D9D9D9;"></i>
+              <% elsif notification.column_name == "Return Update" %>
+                <i class="sidebar-button fa-regular fa-futbol pt-2" style="color: #D9D9D9;"></i>
+              <% elsif notification.column_name == "Nutrition Update" %>
+                <i class="sidebar-button  fa-solid fa-utensils pt-2" style="color: #D9D9D9;"></i>
+              <% elsif notification.column_name == "Player Update" %>
+                <i class="sidebar-button fa-solid fa-note-sticky pt-2" style="color: #D9D9D9;"></i>
+              <% else %>
+                <i class="sidebar-button fa-solid fa-comments pt-2" style="color: #D9D9D9;"></i>
+              <% end %>
             </div>
             <div class="col-5">
+            <%= link_to team_player_path(notification.team, notification.player) do  %>
               <h5><%= notification.player.first_name %></h5>
+            <% end %>
               <h6><%= notification.column_name %></h6>
             </div>
             <div class="col-5 d-flex flex-column align-items-end">
@@ -29,7 +41,7 @@
                   <%= notification.player.health%>
                 </div>
               <% end %>
-                <p class="fst-italic mt-1">
+                <p class="fst-italic m-2">
                 <%= time_ago_in_words(notification.created_at) %> ago
                 </p>
             </div>
