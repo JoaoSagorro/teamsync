@@ -1,0 +1,45 @@
+.names {
+  background-color: #E7FFE5;
+  display: inline-block;
+  font-size: 0.8rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  color: $primary;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.employees {
+  color: $primary;
+  background-color: #E7FFE5;
+  background-color: $light-blue;
+  border: 1px solid $primary;
+  display: inline-block;
+  font-size: 0.8rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  color: $primary;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.div-height {
+
+  .limited {
+    color: #FF9900;
+    background-color: #FFF6E5;
+    border: 1px solid #FF9900;
+  }
+
+  .available {
+    color: #31c70b;
+    background-color: #E7FFE5;
+    border: 1px solid #31c70b;
+  }
+
+  .injured {
+    color: #FF001E;
+    background-color: #FFE5E8;
+    border: 1px solid #FF001E;
+  }
+}

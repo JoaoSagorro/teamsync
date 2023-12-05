@@ -1,22 +1,22 @@
 <div id="navbar" class="d-flex justify-content-between navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top border-bottom-success">
   <div class="mx-2">
   <% if controller_name == 'teams' && action_name == 'show' %>
-    <h1 class="ms-5 fw-light">Dashboard</h1>
+    <h1 class="ms-5 fw-light text-primary">Dashboard</h1>
   <% end %>
     <% if controller_name == 'events' && action_name == 'index' %>
-    <h1 class="ms-5 fw-light">Calendar</h1>
+    <h1 class="ms-5 fw-light text-primary">Calendar</h1>
   <% end %>
   <% if controller_name == 'teams' && action_name == 'staff' %>
-    <h1 class="ms-5 fw-light">Team Overview</h1>
+    <h1 class="ms-5 fw-light text-primary">Team Overview</h1>
   <% end %>
   <% if controller_name == 'players' && action_name == 'index' %>
-    <h1 class="ms-5 fw-light">All Players</h1>
+    <h1 class="ms-5 fw-light text-primary">All Players</h1>
   <% end %>
    <% if controller_name == 'teams' && action_name == 'management' %>
-    <h1 class="ms-5 fw-light">Management</h1>
+    <h1 class="ms-5 fw-light text-primary">Management</h1>
   <% end %>
    <% if controller_name == 'teams' && action_name == 'chat' %>
-    <h1 class="ms-5 fw-light">Chat</h1>
+    <h1 class="ms-5 fw-light text-primary">Chat</h1>
   <% end %>
     </div>
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">
@@ -25,8 +25,7 @@
         <h6>Team Manager</h6>
       </div>
       <a class="nav-link mx-2" href="#">
-        <%= image_tag "liverpool_logo", class: "logo", position: :sticky %>
-        <%#= image_tag "liverpool_logo2", class: "logo" %>
+        <%= image_tag "liverpool_logo.png", class: "logo", position: :sticky %>
       </a>
   </nav>
 </div>

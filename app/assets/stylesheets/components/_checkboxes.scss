@@ -2,27 +2,74 @@
   display: inline-block;
 }
 
-.tag-selector {
+.tag-selector-available {
   position: absolute;
   transform: scale(0);
 }
 
-.tag-selector + label {
+.tag-selector-available + label {
   cursor: pointer;
   display: inline-block;
   font-size: 0.8rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
-  background-color: $light-blue;
-  color: $primary;
-  border: 1px solid $primary;
+  color: #31c70b;
+  background-color: #E7FFE5;
+  border: 1px solid #31c70b;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
 }
 
-.tag-selector:checked + label {
+.tag-selector-available:checked + label {
   background-color: $primary;
   color: white;
+  border: $white;
+}
+.tag-selector-injured {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector-injured + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  color: #FF001E;
+  background-color: #FFE5E8;
+  border: 1px solid #FF001E;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector-injured:checked + label {
+  background-color: $primary;
+  color: white;
+  border: $white;
+}
+.tag-selector-limited {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector-limited + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  color: #FF9900;
+  background-color: #FFF6E5;
+  border: 1px solid #FF9900;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector-limited:checked + label {
+  background-color: $primary;
+  color: white;
+  border: $white;
 }
 
 .select-all {
@@ -36,4 +83,25 @@
   border: 1px solid $primary;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: $light-blue;
+  color: $primary;
+  border: 1px solid $primary;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+.tag-selector:checked + label {
+  background-color: $primary;
+  color: white;
 }

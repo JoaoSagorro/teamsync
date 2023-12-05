@@ -30,3 +30,12 @@
   width: 100vw;
   overflow-x: auto;
 }
+
+.notifications {
+  height: 300px;
+  overflow-y: auto;
+
+  p {
+    font-size: 12px;
+  }
+}

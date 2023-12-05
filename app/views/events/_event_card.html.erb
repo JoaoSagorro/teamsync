@@ -8,7 +8,7 @@
         <%= link_to team_events_path do %>
           <i class="fas fa-2x fa-chevron-circle-left" style="color: #dddddd;"></i>
         <% end %>
-        
+
           <div class="row justify-content-center p-2">
             <h3 class="text-center p-2"><%= @event.title %></h3>
             <hr>
@@ -16,18 +16,45 @@
           <div class="d-flex justify-content-center">
             <div class="d-flex w-75 pt-3">
                   <div class="col-8 ps-4 mb-2">
-                    <h5 class="mb-3"><%= @event.description %></h5>
-                    <h6>Location:</h6>
-                    <h6><%= @event.location %></h6>
+                    <h5>Description:</h5>
+                    <h6 class="my-2 ms-2"><%= @event.description %></h6>
+                    <h5>Location:</h5>
+                    <h6 class="my-2 ms-2"><%= @event.location %></h6>
                     <h5>Who's participating</h5>
-                  </div>
+                      <h6 class="my-2 ms-2">Players:</h6>
+                        <div class="div-height ms-3">
+                          <% @event.players.to_a.each do |player| %>
+                            <% if player.health === "Limited" %>
+                              <div class="names limited mt-0">
+                                <%= player.full_name %>
+                              </div>
+                            <% elsif player.health === "Injured" %>
+                              <div class="names injured mt-0">
+                                <%= player.first_name %>
+                              </div>
+                            <% else %>
+                              <div class="names available mt-0 ">
+                                <%= player.full_name %>
+                              </div>
+                            <% end %>
+                          <% end %>
+                        </div>
+                        <h6 class="my-2 ms-2">Employees:</h6>
+                          <div class="div-height ms-3">
+                            <% @event.employees.to_a.each do |employee| %>
+                              <div class="employees ms-0 mt-0">
+                                <%= employee.first_name%>
+                              </div>
+                            <% end %>
+                          </div>
+                    </div>
                   <div class="col-4 pe-4 text-end mb-2">
-                    <h6>From:</h6>
-                      <h5><%= @event.start_date.to_date %></h5>
-                      <h6><%= @event.start_date.strftime("%H:%M") %></h6>
-                    <h6>To:</h6>
-                      <h5><%= @event.start_date.to_date %></h5>
-                      <h6><%= @event.end_date.strftime("%H:%M") %></h6>
+                    <h5>Starts at:</h5>
+                      <h6><%= @event.start_date.to_date %></h6>
+                      <h6><%= @event.start_date.strftime("%H:%M") %>H</h6>
+                    <h5>Ends at:</h5>
+                      <h6><%= @event.start_date.to_date %></h6>
+                      <h6><%= @event.end_date.strftime("%H:%M") %>H</h6>
                   </div>
             </div>
         </div>

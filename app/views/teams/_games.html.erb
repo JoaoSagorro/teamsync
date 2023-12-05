@@ -2,47 +2,50 @@
   <div class="m-2">
 
     <div class="row pt-2">
-      <h3 class="text-center p-2">Following games</h3>
+      <h3 class="text-center p-2">Upcoming Matches</h3>
       <hr>
     </div>
 
-    <div class="row align-items-center pt-2">
-      <div class="col-5">
+    <div class="row align-items-center pt-3">
+    <% @events.each do |event| %>
+      <div class="col-6">
         <div class="row ps-4">
           <div class="d-flex">
             <i class="fa-regular fa-calendar" style="color: #92bfca;"></i>
-            <h6 class="ps-1">00-00-00</h6>
+            <h6 class="ps-1"><%= event.start_date.to_date %></h6>
           </div>
           <div class="d-flex">
             <i class="fa-solid fa-location-dot" style="color: #92bfca;"></i>
-            <h6 class="ps-1">Stadium</h6>
+            <h6 class="ps-1"><%= event.location %></h6>
           </div>
-          <h6>Referee Name</h6>
         </div>
       </div>
 
-      <div class="col-2">
+      <%# <div class="col-2">
         <div class="bg-light rounded-4">
           <div class="row">
-            <h6 class="text-center p-2">PSG</h6>
+            <%# <h6 class="text-center p-2">Liverpool</h6>
             <h6 class="text-center">VS</h6>
-            <h6 class="text-center p-2">FCBM</h6>
-          </div>
+            <h6 class="text-center p-2"><%= event.description %>
+          <%# </div>
+        </div>
+      </div> %>
+
+      <div class="col-6">
+        <div class="row pe-4">
+          <h6 class="text-center">Liverpool</h6>
+        </div>
+        <div class="row pe-4">
+            <h6 class="text-center">VS</h6>
+        </div>
+        <div class="row pe-4">
+          <h6 class="text-center"><%= event.description %></h6>
         </div>
       </div>
-
-      <div class="col-5">
-        <div class="row pe-4">
-          <h6 class="text-center">Team Name</h6>
-        </div>
-        <div class="row pe-4">
-          <h6 class="text-center">Team Name</h6>
-        </div>
-      </div>
-
+      <% end %>
     </div>
 
-    <div class="row align-items-center pt-2">
+    <%# <div class="row align-items-center pt-2">
       <div class="col-5">
         <div class="row ps-4">
           <div class="d-flex">
@@ -75,7 +78,7 @@
           <h6 class="text-center">Team Name</h6>
         </div>
       </div>
-    </div>
+    </div> %>
 
 
   </div>
