@@ -5,91 +5,72 @@
           <hr>
         </div>
 
-        <div class="notifications">
+      <div class="notifications">
         <% @notifications.each do |notification| %>
-          <div class="row pt-3 align-middle">
-            <div class="col-2">
-            <% if notification.column_name == "Health Update" %>
-                <i class="sidebar-button fa-solid fa-notes-medical pt-2" style="color: #D9D9D9;"></i>
-              <% elsif notification.column_name == "Return Update" %>
-                <i class="sidebar-button fa-regular fa-futbol pt-2" style="color: #D9D9D9;"></i>
-              <% elsif notification.column_name == "Nutrition Update" %>
-                <i class="sidebar-button  fa-solid fa-utensils pt-2" style="color: #D9D9D9;"></i>
-              <% elsif notification.column_name == "Player Update" %>
-                <i class="sidebar-button fa-solid fa-note-sticky pt-2" style="color: #D9D9D9;"></i>
-              <% else %>
-                <i class="sidebar-button fa-solid fa-comments pt-2" style="color: #D9D9D9;"></i>
-              <% end %>
-            </div>
-            <div class="col-5">
-            <%= link_to team_player_path(notification.team, notification.player) do  %>
-              <h5><%= notification.player.first_name %></h5>
+          <div class="row align-middle">
+            <% if notification.column_name == "Player" %>
+              <div class="col-2 pt-3">
+                <% if notification.note == "Health Update" %>
+                    <i class="sidebar-button fa-solid fa-notes-medical pt-2" style="color: #D9D9D9;"></i>
+                  <% elsif notification.note == "Return Update" %>
+                    <i class="sidebar-button fa-regular fa-futbol pt-2" style="color: #D9D9D9;"></i>
+                  <% elsif notification.note == "Nutrition Update" %>
+                    <i class="sidebar-button  fa-solid fa-utensils pt-2" style="color: #D9D9D9;"></i>
+                  <% elsif notification.note == "Player Update" %>
+                    <i class="sidebar-button fa-solid fa-note-sticky pt-2" style="color: #D9D9D9;"></i>
+                  <% else %>
+                    <i class="sidebar-button fa-solid fa-comments pt-2" style="color: #D9D9D9;"></i>
+                  <% end %>
+              </div>
+              <div class="col-5 pt-3">
+                <%= link_to team_player_path(notification.team, notification.player) do  %>
+                  <h5><%= notification.player.first_name %></h5>
+                <% end %>
+                  <h6><%= notification.note %></h6>
+              </div>
+              <div class="col-5 pt-3 d-flex flex-column align-items-end">
+                  <% if notification.player.health == "Available" %>
+                    <div class="health-status available">
+                      <%= notification.player.health%>
+                    </div>
+                  <% elsif notification.player.health == "Limited" %>
+                    <div class="health-status limited" >
+                      <%= notification.player.health%>
+                    </div>
+                  <% else %>
+                    <div class="health-status injured">
+                      <%= notification.player.health%>
+                    </div>
+                  <% end %>
+                    <p class="fst-italic m-2">
+                    <%= time_ago_in_words(notification.created_at) %> ago
+                    </p>
+              </div>
             <% end %>
-              <h6><%= notification.column_name %></h6>
-            </div>
-            <div class="col-5 d-flex flex-column align-items-end">
-              <% if notification.player.health == "Available" %>
-                <div class="health-status available">
-                  <%= notification.player.health%>
+
+            <% if notification.column_name == "Message" && notification.user != current_user %>
+              <div class="col-2 pt-3">
+                <i class="sidebar-button fa-solid fa-comments pt-2" style="color: #D9D9D9;"></i>
+              </div>
+              <div class="col-5 pt-3">
+                <%= link_to team_chatroom_path(notification.team, notification.message.chatroom) do  %>
+                  <h5><%= notification.user.first_name %></h5>
+                <% end %>
+                <h6><%= notification.note %></h6>
+              </div>
+              <div class="col-5 pt-3 d-flex flex-column align-items-end">
+                <%= link_to team_chatroom_path(notification.team, notification.message.chatroom) do  %>
+                <div class="chatroom-name">
+                  <%= notification.message.chatroom.name%>
                 </div>
-              <% elsif notification.player.health == "Limited" %>
-                <div class="health-status limited" >
-                  <%= notification.player.health%>
-                </div>
-              <% else %>
-                <div class="health-status injured">
-                  <%= notification.player.health%>
-                </div>
-              <% end %>
-                <p class="fst-italic m-2">
-                <%= time_ago_in_words(notification.created_at) %> ago
-                </p>
-            </div>
+                <% end %>
+                  <p class="fst-italic m-2">
+                    <%= time_ago_in_words(notification.created_at) %> ago
+                  </p>
+              </div>
+            <% end %>
           </div>
         <% end %>
-
-        <div class="row pt-3">
-          <div class="col-2">
-            <i class="sidebar-button fa-solid fa-comments pt-2" style="color: #D9D9D9;"></i>
-          </div>
-          <div class="col-5">
-            <h5>Mesut</h5>
-            <h6>Physiotherapist</h6>
-          </div>
-          <div class="col-5 text-end">
-            <h6>16:45</h6>
-          </div>
-        </div>
-
-        <div class="row pt-3">
-          <div class="col-2">
-            <i class="sidebar-button fa-solid fa-bars-progress pt-2" style="color: #D9D9D9;"></i>
-          </div>
-          <div class="col-5">
-            <h5>Management</h5>
-            <h6 class="text-nowrap">New Update</h6>
-          </div>
-          <div class="col-5 text-end">
-            <h6 class="pt-1">16h43</h6>
-          </div>
-        </div>
-
-
-
-         <div class="row pt-3">
-          <div class="col-2">
-            <i class="sidebar-button fa-solid fa-comments pt-2" style="color: #D9D9D9;"></i>
-             <%# #dddddd color for icons not projector%>
-          </div>
-          <div class="col-5">
-            <h5>Eden</h5>
-            <h6 class="text-nowrap">Right Midfielder</h6>
-          </div>
-          <div class="col-5 text-end">
-            <h6 class="pt-1">16h42</h6>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>

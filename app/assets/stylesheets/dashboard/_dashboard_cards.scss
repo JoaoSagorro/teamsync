@@ -62,3 +62,13 @@
   color: grey;
   border: 1px solid grey;
 }
+
+.chatroom-name {
+  border-radius: 20px;
+  background-color: $light-blue;
+  color: $primary;
+  // border: 1px solid $primary;
+  width: 120px;
+  height: 25px;
+  text-align: center;
+}
