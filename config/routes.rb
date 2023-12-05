@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/teams/:id/staff", to: "teams#staff", as: "staff"
-  get "/teams/:id/management", to: "teams#management", as: "management"
+  get "/teams/:id/management", to: "management#index", as: "management"
   get "/teams/:id/chat", to: "teams#chat", as: "chat"
 
   resources :teams, only: :show do
+    resources :management, only: [:index, :show]
     resources :events, except: :destroy
     resources :players, except: :destroy
     resources :employees, except: :destroy

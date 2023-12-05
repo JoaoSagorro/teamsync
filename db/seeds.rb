@@ -70,7 +70,7 @@ team = Team.new(
     sport: 'Football',
     stadium: 'Anfield',
     address: 'Anfield Rd, Anfield, Liverpool L4 0TH, United Kingdom',
-    budget: 10_000_000
+    budget: 5_000_000
   }
 )
 team.user = user
@@ -186,7 +186,7 @@ end
     team:,
     date: Faker::Date.between(from: 6.months.ago, to: Date.today),
     description: Faker::Lorem.sentence,
-    amount: Faker::Number.within(range: 1000..5000)
+    amount: Faker::Number.within(range: 75000..100000)
   )
 
   cost.remaining_budget = team.budget - cost.amount
