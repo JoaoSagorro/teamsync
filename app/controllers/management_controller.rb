@@ -1,13 +1,8 @@
-class TeamsController < ApplicationController
-  def show
+class ManagementController < ApplicationController
+  def index
     @team = current_user.team
-    # @players = Player.where(health: "Available")
-    @players = Player.where(health: "Injured").or Player.where(health: "Limited")
-    # @players = @players.slice(0, 4)
-
-    # the messed up KickChart stuff goes here
-    players = Player.all
     games = Game.order(date: :asc)
+
 
     # CumulativeScore - LineChart
     cumulative_score_data = {}
@@ -26,15 +21,14 @@ class TeamsController < ApplicationController
     end
 
     @cumulative_score_data = cumulative_score_data
-
     # PlayerHealth - PieChart
-    @health_chart_data = players.group(:health).count.transform_keys do |health|
+    @health_chart_data = @team.players.group(:health).count.transform_keys do |health|
       case health
       when 'Available'
         'Available'
       when 'Injured'
         'Injured'
-      else 'Limited'
+      else
         'Limited'
       end
     end
@@ -51,22 +45,5 @@ class TeamsController < ApplicationController
     end
 
     @cost_chart_data = cost_chart_data
-    @events = Event.where(event_type: "Match")
-    @notifications = Notification.order(created_at: :desc)
-  end
-
-  def staff
-    @team = current_user.team
-    @players = Player.all
-    @employees = Employee.all
-  end
-
-  def chatrooms
-    @team = current_user.team
-    @chatrooms = Chatroom.all
-  end
-
-  def management
-    @team = current_user.team
   end
 end

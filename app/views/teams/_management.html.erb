@@ -1,18 +1,36 @@
-<div id="management" class="row m-1 mt-4 justify-content-between">
-  <div class="col-6 bg-white rounded-4 max-width-40">
-    <div class="row pt-3">
-      <h3 class="text-center p-2">Costs</h3>
-        <hr>
-        <img src="https://res.cloudinary.com/dydsbw4wh/image/upload/v1701275178/costs_yi1y4v.png" style="padding-bottom: 8px; border-radius: 30px;">
+<div class="col-6">
+  <div class="bg-white rounded-4 mt-5">
+    <div class="row">
+      <div class="m-2">
+        <h3 class="text-center mb-4 mt-4">Current Championship</h3>
+        <hr class="m-3">
+      </div>
+    </div>
+    <div class="m-3">
+      <%= line_chart @cumulative_score_data,
+        height: "400px",
+        legend: "bottom",
+        id: "cumulative-score-chart",
+        title: "Premier League Score" %>
     </div>
   </div>
+</div>
 
-  <div class="col-6 bg-white rounded-4 max-width-40">
-    <div class="row pt-3">
-      <h3 class="text-center p-2">Team Status</h3>
-
-      <hr>
-      <img src="https://res.cloudinary.com/dydsbw4wh/image/upload/v1701276346/team_status_ii6bfb.png" style="padding-bottom: 8px; border-radius: 30px;">
+<div class="col-6">
+  <div class="bg-white rounded-4 mt-5">
+    <div class="row">
+      <div class="m-2">
+        <h3 class="text-center mb-4 mt-4">What Name Should Go Here?</h3>
+        <hr class="m-3">
+      </div>
+    </div>
+    <div class="m-3">
+      <%= pie_chart @health_chart_data,
+              height: "400px",
+              legend: "bottom",
+              id: "health-chart",
+              percentage: true, title: "Players Health Distribution",
+              colors: ["#ffc14d", "#78ff6b", "#ff5569", "#FF5733"] %>
     </div>
   </div>
 </div>

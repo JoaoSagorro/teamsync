@@ -1,0 +1,36 @@
+<div class="m-4">
+  <div class="bg-white rounded-4 mt-5">
+    <div class="p-4">
+      <%= line_chart @cost_chart_data, height: "400px", legend: "bottom", id: "cost-chart", title: "Available Budget (June - December)" %>
+      <div>
+        Semesters Budget: <strong>$5,000,000</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-4">
+  <div class="bg-white rounded-4 mt-5">
+    <div class="p-4">
+      <%= line_chart @cumulative_score_data,
+        height: "400px",
+        legend: "bottom",
+        id: "cumulative-score-chart",
+        title: "Premier League Score" %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="m-4">
+  <div class="bg-white rounded-4 mt-5">
+    <div class="p-4">
+     <%= pie_chart @health_chart_data,
+      height: "400px", legend: "bottom",
+      id: "health-chart", percentage: true,
+      title: "Players Health Distribution",
+      colors: ["#ffc14d", "#78ff6b", "#ff5569", "#FF5733"] %>
+    </div>
+  </div>
+</div>
