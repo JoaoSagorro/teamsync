@@ -8,7 +8,7 @@
 
     <div class="todays-events row pt-2">
       <% if @events.any? %>
-        <% @team.events.each do |event|  %>
+        <% @events.each do |event|  %>
           <% if event.start_date.to_date == Date.today %>
             <div class="col-8 mb-2">
               <h5><%= event.title %></h5>

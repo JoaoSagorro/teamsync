@@ -7,21 +7,21 @@
     </div>
 
     <div class="games row pt-2">
-    <% if @events.any? %>
-      <% @events.each do |event| %>
+    <% if @matches.any? %>
+      <% @matches.each do |match| %>
       <div class="col-5 py-4">
         <div class="row ps-4">
           <div class="d-flex mb-2">
             <i class="fa-regular fa-calendar" style="color: #92bfca;"></i>
-            <h6 class="ps-1"><%= event.start_date.to_date %></h6>
+            <h6 class="ps-1"><%= match.start_date.to_date %></h6>
           </div>
           <div class="d-flex mb-2">
             <i class="fa-solid fa-location-dot" style="color: #92bfca;"></i>
-            <h6 class="ps-1"><%= event.location %></h6>
+            <h6 class="ps-1"><%= match.location %></h6>
           </div>
           <div class="d-flex">
             <%# <i class="fa-solid fa-location-dot" style="color: #92bfca;"></i> %>
-            <% if event.location == "Anfield" %>
+            <% if match.location == "Anfield" %>
               <div class="home px-2 py-1">
                 <h6 class="m-0">Home</h6>
               </div>
@@ -42,8 +42,8 @@
             </div>
             <h6 class="text-center">vs</h6>
             <div class="team-crest text-center">
-              <% if event.opposition != nil %>
-                <%= image_tag Event::OPPONENTS[event.opposition]%>
+              <% if match.opposition != nil %>
+                <%= image_tag Event::OPPONENTS[match.opposition]%>
               <% end %>
             </div>
         </div>
@@ -58,7 +58,7 @@
             <h6 class="text-center m-3"> </h6>
         </div>
         <div class="row pe-4">
-          <h6 class="text-center"><%= event.opposition %></h6>
+          <h6 class="text-center"><%= match.opposition %></h6>
         </div>
       </div>
       <% end %>
