@@ -202,16 +202,6 @@ def outcome()
   end
 end
 
-
-event = Event.new ({
-  title: "Gym Session",
-  location: "Gym 1",
-  description: "Upper body session",
-  start_date: DateTime.strptime("12/01/2023 08:30", "%m/%d/%Y %H:%M"),
-  end_date: DateTime.strptime("12/01/2023 09:15", "%m/%d/%Y %H:%M"),
-  event_type: "Gym"
-})
-
 scores = {
   "Win" => 3,
   "Loss" => 0,
@@ -254,18 +244,33 @@ puts '...'
 puts 'Creating events'
 
 event = Event.new({
-  title: "Gym Session",
-  location: "Gym 1",
-  description: "Upper body session",
-  start_date: DateTime.strptime("12/08/2023 08:30", "%m/%d/%Y %H:%M"),
-  end_date: DateTime.strptime("12/08/2023 09:15", "%m/%d/%Y %H:%M"),
-  event_type: "Gym"
+  title: "Team Arrival",
+  location: "Liverpool Academy",
+  description: "Every player is expected to arrive at 8:30am",
+  start_date: DateTime.strptime("12/09/2023 08:30", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/09/2023 09:00", "%m/%d/%Y %H:%M"),
+  event_type: "Other"
 })
 event.team = team
 event.players = Player.all
 event.save!
 
 puts "First event created"
+
+event = Event.new ({
+  title: "Lunch",
+  location: "Cantine",
+  description: "Team Lunch",
+  start_date: DateTime.strptime("12/08/2023 10:30", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/08/2023 11:30", "%m/%d/%Y %H:%M"),
+  event_type: "Other"
+})
+event.team = team
+event.players = Player.all
+event.employees = Employee.all
+event.save!
+
+puts "Second event created"
 
 event = Event.new({
   title: "Monthly catch-up",
@@ -280,7 +285,7 @@ event.players = Player.all
 event.employees = Employee.all
 event.save!
 
-puts "Second event created"
+puts "Third event created"
 
 event = Event.new({
   title: "Contract Discussion",
@@ -289,29 +294,75 @@ event = Event.new({
   start_date: DateTime.strptime("12/08/2023 16:00", "%m/%d/%Y %H:%M"),
   end_date: DateTime.strptime("12/08/2023 17:00", "%m/%d/%Y %H:%M"),
   event_type: "Meeting"
- })
+  })
 event.team = team
 event.players = [Player.first]
 # event.employees = Employee.where(role: "Coach"),
 event.save!
 
-puts "Third event created"
+puts "Fourth event created"
 
 event = Event.new({
-  title: "Fulham Match",
+  title: "Crystal Palace Match",
   location: "Anfield",
   description: "16th Premier League match of the season",
-  start_date: DateTime.strptime("12/10/2023 14:00", "%m/%d/%Y %H:%M"),
-  end_date: DateTime.strptime("12/10/2023 16:00", "%m/%d/%Y %H:%M"),
+  start_date: DateTime.strptime("12/09/2023 14:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/09/2023 16:00", "%m/%d/%Y %H:%M"),
   event_type: "Match",
-  opposition: Event::OPPONENTS.keys.sample
+  opposition: 'Crystal Palace'
 })
 event.team = team
 event.players = Player.where(health: "Available")
 event.employees = Employee.all
 event.save!
 
+puts "Fifth event created"
+
+event = Event.new({
+  title: "Recovery Training",
+  location: "Liverpool Academy",
+  description: "Recovery training after match",
+  start_date: DateTime.strptime("12/10/2023 10:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/10/2023 11:30", "%m/%d/%Y %H:%M"),
+  event_type: "Training"
+})
+event.team = team
+event.players = Player.where(health: "Available")
+event.employees = Employee.all
+event.save!
+
+puts "Sixth event created"
+
+event = Event.new({
+  title: "Physio treatment",
+  location: "Physio room",
+  description: "Injured players only",
+  start_date: DateTime.strptime("12/10/2023 9:00", "%m/%d/%Y %H:%M"),
+  end_date: DateTime.strptime("12/10/2023 12:30", "%m/%d/%Y %H:%M"),
+  event_type: "Physio"
+})
+event.team = team
+event.players = Player.where(health: "Injured")
+event.employees = Employee.where(role: 'Head of Physiotherapy')
+event.save!
+
 puts 'All events created'
+
+puts '...'
+
+puts 'Creating Chatrooms'
+
+chatroom_name = ['Team chat', 'Players chat', 'Coaches chat', 'Physios', 'Performance']
+
+puts '...'
+
+chatroom = Chatroom.new({
+  name: chatroom_name.pop
+})
+chatroom.team = team
+event.save!
+
+puts 'Chatrooms created'
 
 puts '...'
 

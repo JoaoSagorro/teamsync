@@ -15,22 +15,19 @@
   <% if controller_name == 'players' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">All Players</h1>
   <% end %>
-
-
+  <% if controller_name == 'players' && action_name == 'new' %>
+    <h1 class="ms-5 fw-light text-primary">New Player</h1>
+  <% end %>
   <% if controller_name == 'players' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">All Players</h1>
   <% end %>
-
   <% if controller_name == 'players' && action_name == 'show' %>
     <h1 class="ms-5 fw-light text-primary">Player Profile</h1>
   <% end %>
-
-
-
    <% if controller_name == 'management' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">Management</h1>
   <% end %>
-   <% if controller_name == 'teams' && action_name == 'chat' %>
+  <% if controller_name == 'teams' && action_name == 'chat' %>
     <h1 class="ms-5 fw-light text-primary">Chat</h1>
   <% end %>
   <% if controller_name == 'chatrooms' && action_name == 'index' %>
@@ -38,6 +35,9 @@
   <% end %>
   <% if controller_name == 'chatrooms' && action_name == 'show' %>
     <h1 class="ms-5 fw-light text-primary">#<%= @chatroom.name %></h1>
+  <% end %>
+  <% if controller_name == 'chatrooms' && action_name == 'new' %>
+    <h1 class="ms-5 fw-light text-primary">New Chat</h1>
   <% end %>
     </div>
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">

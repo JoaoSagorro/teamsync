@@ -1,8 +1,12 @@
-<h1>CHAT FORM GOES HERE</h1>
+<div class="container h-100 d-flex align-items-center justify-content-center">
+  <div class="login form p-5 w-50 shadow mt-5 bg-white rounded-4">
+        <h2 class="text-center text-primary">Add Chat</h2>
 
-<%= simple_form_for [@team, @chatroom] do |f| %>
-    <%= f.input :name,
-                label: false,
-                input_html: { autocomplete: "email", style: "background: white;", placeholder: "Title" } %>
-    <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+    <%= simple_form_for [@team, @chatroom] do |f| %>
+      <%= f.input :name,
+                  label: false,
+                  input_html: { autocomplete: "email", style: "background: white;", placeholder: "Title" } %>
+      <%= f.submit class: 'btn btn-primary custom-button' %>
+    <% end %>
+  </div>
+</div>
