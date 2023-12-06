@@ -7,39 +7,57 @@
 
     <%# <div class="banner rounded-1" style="background-image: url('https://res.cloudinary.com/dydsbw4wh/image/upload/v1701194543/ezgif.com-optimize_dnrqwd.gif');"> %>
 
-      <div class="banner-content">
-        <h1 class="title-text pb-3"><strong>Precision. Performance. Excellence!</strong></h1>
-        <h4 class=" title-text pb-3">Elevate team performance with TeamSync's innovative sports management</h4>
-        <%= link_to  new_user_session_path do %>
-          <button type="button" class="our-buttons btn btn-primary me-5 open-button" onclick="openForm()">Get Started!</button>
-        <% end %>
+ <div class="banner-content">
+    <h1 class="title-text pb-3"><strong>Precision. Performance. Excellence!</strong></h1>
+    <h4 class=" title-text pb-3">Elevate team performance with TeamSync's innovative sports management</h4>
+    <%= link_to  new_user_session_path do %>
+      <button type="button" class="our-buttons btn btn-primary me-5 open-button" onclick="openForm()">Get Started!</button>
+    <% end %>
+  </div>                     
+                       
+  <div class="container">
+    <h1 class="text-center mt-5 mb-5 p-5 fw-light">How it works</h1>
+    <div class="cards d-flex justify-content-around text-center mb-5">
+
+      <div class="landing-card card border bg-white rounded-4">
+        <i class="fa-solid fa-house p-4" style="color: #2d7d9f; font-size: 4em;"></i>
+        <h4>Intuitive Dashboard</h4>
+        <p class="text-muted">Simplified insights with an intuitive dashboard.</p>
       </div>
-  </div>
 
+      <div class="landing-card card border bg-white rounded-4">
+        <i class="fa-solid fa-calendar-days p-4" style="color: #2d7d9f; font-size: 4em;"></i>
+        <h4>Team Shared Calendar</h4>
+        <p class="text-muted">Sync schedules effortlessly with a team-shared calendar.</p>
+      </div>
 
-    <div class="container">
-      <h1 class="text-center title-text mt-3 mb-5 px-5 pb-5 fw-light">How it works</h1>
-      <div class="cards d-flex justify-content-around text-center mb-5">
-        <div class="landing-card card border bg-white rounded-4">
-          <i class="fa-solid fa-calendar-days p-4" style="color: #2d7d9f; font-size: 4em;"></i>
-          <h4>Team Shared Calendar</h4>
-          <p class="text-muted">Sync schedules effortlessly with a team-shared calendar.</p>
-        </div>
-        <div class="landing-card card border bg-white rounded-4">
-          <i class="fa-solid fa-house p-4" style="color: #2d7d9f; font-size: 4em;"></i>
-          <h4>Intuitive Dashboard</h4>
-          <p class="text-muted">Simplified insights with an intuitive dashboard.</p>
-        </div>
-        <div class="landing-card card border bg-white rounded-4">
-          <i class="fa-solid fa-bars-progress p-4" style="color: #2d7d9f; font-size: 4em;"></i>
-          <h4>Powerful Management</h4>
-          <p class="text-muted">Empower your team with powerful management tools.</p>
-        </div>
+      <div class="landing-card card border bg-white rounded-4">
+        <i class="fa-solid fa-people-group p-4" style="color: #2D7D9F; font-size: 4em;" %></i>
+
+        <h4>Individualized Profiles</h4>
+        <p class="text-muted">Detailed profiles for each, centralizing key info and performance metrics.</p>
       </div>
     </div>
 
+    <div class="cards d-flex justify-content-around text-center mb-5">
 
-  <%# </div> %>
+
+      <div class="landing-card card border bg-white rounded-4">
+        <i class="fa-solid fa-bars-progress p-4" style="color: #2d7d9f; font-size: 4em;"></i>
+        <h4>Powerful Management</h4>
+        <p class="text-muted">Empower your team with powerful management tools.</p>
+      </div>
+
+
+      <div class="landing-card card border bg-white rounded-4">
+        <i class="sidebar-button fa-solid fa-comments p-4" style="color: #2D7D9F; font-size: 4em;" %></i>
+
+        <h4>Real-Time Chat</h4>
+        <p class="text-muted">Instant communication in a secure space. Share updates and strategies.</p>
+      </div>
+
+    </div>
+
 </div>
 
 
