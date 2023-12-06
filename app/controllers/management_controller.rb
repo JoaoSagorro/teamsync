@@ -34,8 +34,8 @@ class ManagementController < ApplicationController
     end
 
     # Costs - LineChart
-    costs = @team.costs.order(date: :asc)
-    cost_chart_data = costs.group("DATE(date)").sum(:amount)
+    @costs = @team.costs.order(date: :asc)
+    cost_chart_data = @costs.group("DATE(date)").sum(:amount)
 
     remaining_budget = @team.budget
 
@@ -45,5 +45,16 @@ class ManagementController < ApplicationController
     end
 
     @cost_chart_data = cost_chart_data
+    balance
+  end
+
+  def balance
+    @team = current_user.team
+    @budget = @team.budget
+    @costs = @team.costs
+    @cost = []
+    @costs.map { |cost| @cost << cost.amount }
+    @current_budget = @budget - @cost.sum
+    return @current_budget
   end
 end
