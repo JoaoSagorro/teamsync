@@ -356,11 +356,13 @@ chatroom_name = ['Team chat', 'Players chat', 'Coaches chat', 'Physios', 'Perfor
 
 puts '...'
 
-chatroom = Chatroom.new({
-  name: chatroom_name.pop
-})
-chatroom.team = team
-event.save!
+5.times do
+  chatroom = Chatroom.new({
+    name: chatroom_name.pop
+  })
+  chatroom.team = team
+  chatroom.save!
+end
 
 puts 'Chatrooms created'
 
