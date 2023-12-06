@@ -34,7 +34,7 @@ class TeamsController < ApplicationController
         'Available'
       when 'Injured'
         'Injured'
-      else 'Limited'
+      else
         'Limited'
       end
     end

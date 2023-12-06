@@ -1,5 +1,5 @@
 <div id="navbar" class="d-flex justify-content-between navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top border-bottom-success">
-  <div class="mx-2">
+  <div class="mx-2 flex-grow-1">
   <% if controller_name == 'teams' && action_name == 'show' %>
     <h1 class="ms-5 fw-light text-primary">Dashboard</h1>
   <% end %>
@@ -39,18 +39,27 @@
   <% if controller_name == 'chatrooms' && action_name == 'new' %>
     <h1 class="ms-5 fw-light text-primary">New Chat</h1>
   <% end %>
+  <% if controller_name == 'search' && action_name == 'search' %>
+    <h1 class="ms-5 fw-light text-primary">Search Results</h1>
+  <% end %>
     </div>
 
-    <%#= form_with url: team_players_path(@team), method: :get, class: "d-flex w-25" do %>
-    <%= form_with url: search_path, method: :get, class: "d-flex w-25" do %>
+  <div class="d-flex">
+    <%= form_with url: search_path, method: :get, class: "d-flex w-200", id:"search-bar" do %>
       <%= text_field_tag :search,
         params[:search],
         class: "form-control me-2 bg-white rounded-4",
+        id: "search-bar-input",
         placeholder: ""
       %>
-      <%= submit_tag "Search", name: "", class: "btn btn-outline-primary rounded-4" %>
+      <%#= submit_tag "Search", name: "", class: "btn btn-outline-primary rounded-4", id: "search-bar-submit" %>
+    <%# <i class="sidebar-button fa-solid fa-magnifying-glass", style="color: #D9D9D9" id="search-button"></i> %>
+    <%= button_tag type: "submit", class: "btn rounded-4", id: "search-bar-submit" do %>
+      <i class="sidebar-button fa-solid fa-magnifying-glass", style="color: #D9D9D9" id="search-bar-submit"></i>
     <% end %>
 
+    <% end %>
+  </div>
 
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">
       <div class="me-3 d-flex flex-column align-items-end">

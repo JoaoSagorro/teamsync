@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
             locals: { message: @message }, status: :unprocessable_entity)
           }
           # render "chatrooms/show", status: :unprocessable_entity
-        end
+      end
       Notification.create!(team: current_user.team, user: @message.user, message: @message, column_name: "Message", note: "New Message" )
     end
   end
