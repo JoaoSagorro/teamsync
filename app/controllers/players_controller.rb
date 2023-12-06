@@ -1,10 +1,12 @@
 class PlayersController < ApplicationController
   before_action :set_players, only: %i[show edit update]
   before_action :set_team
-  helper_method :create_notification
 
   def index
     @players = Player.all
+    if params[:search].present?
+      search_player
+    end
   end
 
   def show
@@ -46,6 +48,12 @@ class PlayersController < ApplicationController
   end
 
   private
+
+  def search_player
+    PgSearch::Multisearch.rebuild(Player)
+    results = PgSearch.multisearch(params[:search])
+    @players = results.map { |player| player.searchable}
+  end
 
   def set_players
     @player = Player.find(params[:id])

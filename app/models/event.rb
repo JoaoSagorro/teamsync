@@ -37,12 +37,15 @@ class Event < ApplicationRecord
 
   validate :opposition_presence_for_match_event
 
+  include PgSearch::Model
+  multisearchable against: %i[opposition event_type]
+
   def opposition_presence_for_match_event
     if event_type == "Match" && !opposition.present?
       errors.add(:opposition, "is required for match events")
     end
   end
-  
+
   def start_time
     self.start_date
   end

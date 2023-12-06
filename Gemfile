@@ -5,6 +5,8 @@ ruby "3.1.2"
 # gem "blazer"
 gem "chartkick"
 
+gem "pg_search"
+
 gem 'faker'
 
 gem "simple_calendar", "~> 2.4"
