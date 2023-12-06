@@ -2,9 +2,19 @@
   <div class="bg-white rounded-4 mt-5">
     <div class="p-4">
       <%= line_chart @cost_chart_data, height: "400px", legend: "bottom", id: "cost-chart", title: "Available Budget (June - December)" %>
-      <div>
-        Semesters Budget: <strong>$5,000,000</strong>
+      <div class="ola">
+        <strong>
+          Semesters Budget:
+        </strong>
+        <%= number_to_currency(@team.budget, unit: "£", separator: ".", delimiter: ",") %>
       </div>
+      <div class="ola2">
+        <strong>
+        Remaining Budget:
+        </strong>
+        <%= number_to_currency(@current_budget, unit: "£", separator: ".", delimiter: ",") %>
+      </div>
+
     </div>
   </div>
 </div>
@@ -21,16 +31,19 @@
   </div>
 </div>
 
+<div>
+  <%= render 'games' %>
+</div>
 
 
 <div class="m-4">
   <div class="bg-white rounded-4 mt-5">
     <div class="p-4">
-     <%= pie_chart @health_chart_data,
-      height: "400px", legend: "bottom",
-      id: "health-chart", percentage: true,
-      title: "Players Health Distribution",
-      colors: ["#ffc14d", "#78ff6b", "#ff5569", "#FF5733"] %>
+      <%= pie_chart @health_chart_data,
+        height: "400px", legend: "bottom",
+        id: "health-chart", percentage: true,
+        title: "Players Health Distribution",
+        colors: ["#ffc14d", "#78ff6b", "#ff5569", "#FF5733"] %>
     </div>
   </div>
 </div>

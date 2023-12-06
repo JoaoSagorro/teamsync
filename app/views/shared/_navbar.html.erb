@@ -18,7 +18,13 @@
   <% if controller_name == 'players' && action_name == 'new' %>
     <h1 class="ms-5 fw-light text-primary">New Player</h1>
   <% end %>
-  <% if controller_name == 'management' && action_name == 'index' %>
+  <% if controller_name == 'players' && action_name == 'index' %>
+    <h1 class="ms-5 fw-light text-primary">All Players</h1>
+  <% end %>
+  <% if controller_name == 'players' && action_name == 'show' %>
+    <h1 class="ms-5 fw-light text-primary">Player Profile</h1>
+  <% end %>
+   <% if controller_name == 'management' && action_name == 'index' %>
     <h1 class="ms-5 fw-light text-primary">Management</h1>
   <% end %>
   <% if controller_name == 'teams' && action_name == 'chat' %>
