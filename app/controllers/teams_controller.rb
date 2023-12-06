@@ -51,9 +51,9 @@ class TeamsController < ApplicationController
     end
 
     @cost_chart_data = cost_chart_data
-    @matches = Event.where(event_type: "Match")
+    @matches = Event.where(event_type: "Match").order(start_date: :asc)
     @notifications = Notification.order(created_at: :desc)
-    @events = Event.all
+    @todays_events = Event.order(start_date: :asc).select { |event| event.start_date.to_date == Date.today }
   end
 
   def staff

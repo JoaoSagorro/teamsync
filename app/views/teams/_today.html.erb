@@ -7,9 +7,8 @@
     </div>
 
     <div class="todays-events row pt-2">
-      <% if @events.any? %>
-        <% @events.each do |event|  %>
-          <% if event.start_date.to_date == Date.today %>
+      <% if @todays_events.any? %>
+        <% @todays_events.each do |event|  %>
             <div class="col-8 mb-2">
               <h5><%= event.title %></h5>
               <h6><%= event.start_date.strftime("%H:%M")%></h6>
@@ -18,7 +17,6 @@
               <h6><%= event.event_type %></h6>
             </div>
           <% end %>
-        <% end %>
       <% else %>
         <div class="text-center">
           <h5 class="fst-italic fw-light text-danger"> No events today </h5>
