@@ -1,9 +1,11 @@
 <div id="message-<%= message.id %>" class="">
-  <small class="w-100 border-div date-stamp">
+  <small class="w-100  name-stamp">
     <strong><%= message.user.full_name %></strong>
+  </small>
+  <p class=" mt-2 message-color"><%= message.content %></p>
+  <small class="w-100  date-stamp">
     <% if message.valid? %>
       <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
     <% end %>
   </small>
-  <p class="border-div mt-2 message-color"><%= message.content %></p>
 </div>
