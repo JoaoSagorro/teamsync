@@ -8,4 +8,7 @@ class Employee < ApplicationRecord
   def employee_full_name
     first_name + " " + last_name
   end
+
+  include PgSearch::Model
+  multisearchable against: %i[first_name last_name role]
 end

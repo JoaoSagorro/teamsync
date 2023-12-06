@@ -6,7 +6,8 @@
       <hr>
     </div>
 
-    <div class="todays-events row pt-3">
+    <div class="todays-events row pt-2">
+      <% if @events.any? %>
         <% @team.events.each do |event|  %>
           <% if event.start_date.to_date == Date.today %>
             <div class="col-8 mb-2">
@@ -18,6 +19,11 @@
             </div>
           <% end %>
         <% end %>
+      <% else %>
+        <div class="text-center">
+          <h5 class="fst-italic fw-light text-danger"> No events today </h5>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

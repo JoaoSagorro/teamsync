@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get "/teams/:id/staff", to: "teams#staff", as: "staff"
   get "/teams/:id/management", to: "management#index", as: "management"
   get "/teams/:id/chat", to: "teams#chat", as: "chat"
-
+  get '/search', to: 'search#search'
+  
   resources :teams, only: :show do
     resources :management, only: [:index, :show]
 

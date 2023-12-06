@@ -28,6 +28,18 @@
     <h1 class="ms-5 fw-light text-primary">#<%= @chatroom.name %></h1>
   <% end %>
     </div>
+
+    <%#= form_with url: team_players_path(@team), method: :get, class: "d-flex w-25" do %>
+    <%= form_with url: search_path, method: :get, class: "d-flex w-25" do %>
+      <%= text_field_tag :search,
+        params[:search],
+        class: "form-control me-2 bg-white rounded-4",
+        placeholder: ""
+      %>
+      <%= submit_tag "Search", name: "", class: "btn btn-outline-primary rounded-4" %>
+    <% end %>
+
+
   <nav class="mx-2 d-flex align-items-center navbar navbar-expand-lg navbar-light p-3 " style="background-color: white">
       <div class="me-3 d-flex flex-column align-items-end">
         <h5><%= current_user.first_name %> <%= current_user.last_name %></h5>

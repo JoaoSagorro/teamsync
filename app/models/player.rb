@@ -4,7 +4,6 @@ class Player < ApplicationRecord
   has_many :events, through: :event_players
   has_many :notifications, dependent: :destroy
   has_one_attached :photo
-  after_update :create_notifications
 
   HEALTH = %w[Injured Available Limited]
 
@@ -16,11 +15,6 @@ class Player < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def create_notifications
-    if saved_changes.any?
-      saved_changes.each do |column, (old_value, new_value)|
-        Notification.create(player_id: id, column_name: column, old_value: old_value, new_value: new_value)
-      end
-    end
-  end
+  include PgSearch::Model
+  multisearchable against: %i[first_name last_name health]
 end
