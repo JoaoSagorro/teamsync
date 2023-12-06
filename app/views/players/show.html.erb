@@ -1,53 +1,96 @@
-<div class="container profile">
-  <%= cl_image_tag @player.photo.key, class: "player-image"%>
-  <div class="d-flex">
-    <h1 class="fw-light me-3 mb-0"><%= @player.first_name %> <%= @player.last_name %></h1>
-      <div class="d-flex align-items-center">
+<div class="ms-5 d-flex justify-content-center">
+  <div class="col-7 bg-white rounded-4 m-5">
+    <div class="row pt-2 ps-2 pe-2">
+      <div class="col-6">
+        <%= link_to staff_path do %>
+          <i class="fas fa-2x fa-chevron-circle-left" style="color: #dddddd;"></i>
+        <% end %>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <%= link_to edit_team_player_path(@team, @player) do %>
+          <i class="fa-solid fa-2x fa-pen-to-square" style="color: #dddddd;"></i>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row pt-1">
+      <div class="col-6">
+        <h2 class="fw-light ps-4 pb-1"><%= @player.first_name %> <%= @player.last_name %></h2>
+        <h6 class="ps-4 pb-1"><%= @player.position %></h6>
+      </div>
+
+      <div class="col-6 justify-content-start pt-1">
         <% if @player.health == "Available" %>
-          <div class="health-status available mt-2">
-            <%= @player.health%>
+          <div class="health-status available mt-2 ms-2">
+            <%= @player.health %>
           </div>
         <% elsif @player.health == "Limited" %>
-          <div class="health-status limited mt-2" >
-            <%= @player.health%>
+          <div class="health-status limited mt-2 ms-2" >
+            <%= @player.health %>
           </div>
         <% else %>
-          <div class="health-status injured mt-2">
-            <%= @player.health%>
+          <div class="health-status injured mt-2 ms-2">
+            <%= @player.health %>
           </div>
         <% end %>
       </div>
     </div>
-  <div class="d-flex">
-    <h3 class="my-3"><%= @player.position %></h3>
-    <div class="d-flex align-items-center ms-3">
-    <h5><%= @player.birthdate.strftime("%d %B %Y") %></h5>
+
+
+    <div class="ps-4 pe-4">
+      <hr>
+
+      <%# player info %>
+      <div class="row">
+        <div class="col-6">
+          <h4>Information</h4>
+
+          <p><i class="fa-solid fa-cake-candles" style="color: #d9d9d9; font-size: 1.8em;"></i>  <i><%= @player.birthdate.strftime("%d %B %Y") %></i></p>
+          <p><i class="fa-solid fa-futbol"  style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.preferred_side %></p>
+
+          <% if @player.note.present? %>
+            <p><i class="fa-solid fa-note-sticky" style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.note %></p>
+          <% end %>
+        </div>
+
+        <div class="col-6">
+          <h4>Health Information</h4>
+
+          <p><i class="sidebar-button  fa-solid fa-utensils pt-2" style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.nutrition_restrictions %></p>
+
+          <% if @player.injury_notes.present? %>
+            <p><i class="sidebar-button fa-solid fa-notes-medical pt-2" style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.injury_notes %></p>
+          <% end %>
+
+          <% if @player.expected_return_date.present? %>
+            <p><i class="fa-solid fa-person-walking-arrow-loop-left"style="color: #d9d9d9; font-size: 1.8em;"></i>   <%= @player.expected_return_date.strftime("%d %B %Y") %></p>
+          <% end %>
+
+        </div>
+      </div>
+
+      <hr>
+      <%# player events%>
+      <h4>Todays Events</h4>
+
+      <% @events.each do |event| %>
+        <% if event.start_date.to_date == Date.today() %>
+          <div class="col-6 mb-2 p-1">
+            <div class="d-flex">
+              <div class="d-flex align-items-center me-2">
+                <h6><%= event.start_date.strftime("%H:%M")%></h6>
+              </div>
+              <h6><%= event.title %></h6>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
     </div>
   </div>
-  <h4>Todays Events</h4>
-  <% @events.each do |event| %>
-    <% if event.start_date.to_date == Date.today() %>
-    <div class="col-6 mb-2 p-1">
-      <div class="d-flex">
-        <div class="d-flex align-items-center me-2">
-          <h6><%= event.start_date.strftime("%H:%M")%></h6>
-          </div>
-        <h6><%= event.title %><h6>
-      </div>
-    </div>
-    <% end %>
-  <% end %>
-  <p>Preferred side: <%= @player.preferred_side %></p>
-  <p>Nutrition Restrictions: <%= @player.nutrition_restrictions %></p>
-  <% if @player.injury_notes != "" %>
-    <p>Injury: <%= @player.injury_notes %></p>
-  <% end %>
-  <% if @player.expected_return_date != nil %>
-  <p>Expected Return Date:
-    <%= @player.expected_return_date.strftime("%d %B %Y") %></p>
-  <% end %>
-  <% if @player.note != "" %>
-    <p>Notes: <%= @player.note %>
-  <% end %>
-  <p><%= link_to "Edit player info", edit_team_player_path(@player) %> </p>
+
+  <div class="col-5 d-flex justify-content-start ps-5 align-items-center" style="height: 600px;">
+    <%# player photo %>
+    <%= cl_image_tag @player.photo.key, class: "img-fluid", style: "width: 75%;" %>
+  </div>
 </div>
