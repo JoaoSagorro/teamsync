@@ -30,6 +30,7 @@ Team.destroy_all
 User.destroy_all
 Game.destroy_all
 Cost.destroy_all
+Notification.destroy_all
 
 puts 'Creating new seeds'
 
