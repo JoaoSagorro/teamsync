@@ -6,6 +6,9 @@ class PagesController < ApplicationController
   end
 
   def home
-    redirect_to team_path(current_user.team) if user_signed_in?
+    # redirect_to team_path(current_user.team) if user_signed_in?
+    if user_signed_in?
+      @team = current_user.team
+    end
   end
 end

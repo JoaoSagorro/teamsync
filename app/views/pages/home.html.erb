@@ -10,11 +10,17 @@
  <div class="banner-content">
     <h1 class="title-text pb-3"><strong>Precision. Performance. Excellence!</strong></h1>
     <h4 class=" title-text pb-3">Elevate team performance with TeamSync's innovative sports management</h4>
-    <%= link_to  new_user_session_path do %>
-      <button type="button" class="our-buttons btn btn-primary me-5 open-button" onclick="openForm()">Get Started!</button>
+    <% if user_signed_in? %>
+      <%= link_to team_path(@team) do %>
+        <button type="button" class="our-buttons btn btn-primary me-5 open-button" onclick="openForm()">Get Started!</button>
+      <% end %>
+    <% else %>
+      <%= link_to  new_user_session_path do %>
+        <button type="button" class="our-buttons btn btn-primary me-5 open-button" onclick="openForm()">Get Started!</button>
+      <% end %>
     <% end %>
-  </div>                     
-                       
+  </div>
+
   <div class="container">
     <h1 class="text-center mt-5 mb-5 p-5 fw-light">How it works</h1>
     <div class="cards d-flex justify-content-around text-center mb-5">

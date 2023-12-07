@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
   end
 
   def show
-    @events = @player.events
+    @events = @player.events.order(start_date: :asc)
   end
 
   def new

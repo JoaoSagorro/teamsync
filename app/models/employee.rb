@@ -11,4 +11,7 @@ class Employee < ApplicationRecord
 
   include PgSearch::Model
   multisearchable against: %i[first_name last_name role]
+  PgSearch.multisearch_options = {
+    using: { tsearch: { prefix: true } }
+  }
 end

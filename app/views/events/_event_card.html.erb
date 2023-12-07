@@ -50,10 +50,10 @@
                     </div>
                   <div class="col-4 pe-4 text-end mb-2">
                     <h5>Starts at:</h5>
-                      <h6><%= @event.start_date.to_date %></h6>
+                      <h6><%= @event.start_date.to_date.strftime("%-d %b %Y") %></h6>
                       <h6><%= @event.start_date.strftime("%H:%M") %>H</h6>
                     <h5>Ends at:</h5>
-                      <h6><%= @event.start_date.to_date %></h6>
+                      <h6><%= @event.start_date.to_date.strftime("%-d %b %Y") %></h6>
                       <h6><%= @event.end_date.strftime("%H:%M") %>H</h6>
                   </div>
             </div>

@@ -1,5 +1,5 @@
 <div class="ms-5 d-flex justify-content-center">
-  <div class="col-7 bg-white rounded-4 m-5">
+  <div class="player-profile-div col-7 bg-white rounded-4 m-5">
     <div class="row pt-2 ps-2 pe-2">
       <div class="col-6">
         <%= link_to staff_path do %>
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="row pt-1">
+    <div class="row pt-1 px-3">
       <div class="col-6">
         <h2 class="fw-light ps-4 pb-1"><%= @player.first_name %> <%= @player.last_name %></h2>
         <h6 class="ps-4 pb-1"><%= @player.position %></h6>
@@ -41,29 +41,47 @@
       <hr>
 
       <%# player info %>
-      <div class="row">
+      <div class="row px-3">
         <div class="col-6">
-          <h4>Information</h4>
+          <h4 class="mb-3">Information</h4>
+          <div class="d-flex">
+            <i class="fa-solid fa-cake-candles me-3" style="color: #d9d9d9; font-size: 1.8em;"></i>
+            <p><%= @player.birthdate.strftime("%d %B %Y") %></p>
+          </div>
 
-          <p><i class="fa-solid fa-cake-candles" style="color: #d9d9d9; font-size: 1.8em;"></i>  <i><%= @player.birthdate.strftime("%d %B %Y") %></i></p>
-          <p><i class="fa-solid fa-futbol"  style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.preferred_side %></p>
+          <div class="d-flex">
+            <i class="fa-solid fa-futbol me-3"  style="color: #d9d9d9; font-size: 1.8em;"></i>
+            <p><%= @player.preferred_side %></p>
+          </div>
 
           <% if @player.note.present? %>
-            <p><i class="fa-solid fa-note-sticky" style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.note %></p>
+            <div class="d-flex">
+              <i class="fa-solid fa-note-sticky me-3" style="color: #d9d9d9; font-size: 1.8em;"></i>
+              <p><%= @player.note %></p>
+            </div>
           <% end %>
         </div>
 
         <div class="col-6">
-          <h4>Health Information</h4>
+          <h4 class="mb-3">Health Information</h4>
 
-          <p><i class="sidebar-button  fa-solid fa-utensils pt-2" style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.nutrition_restrictions %></p>
+          <div class="d-flex">
+            <i class="sidebar-button  fa-solid fa-utensils me-3" style="color: #d9d9d9; font-size: 1.8em;"></i>
+            <p><%= @player.nutrition_restrictions %></p>
+          </div>
 
           <% if @player.injury_notes.present? %>
-            <p><i class="sidebar-button fa-solid fa-notes-medical pt-2" style="color: #d9d9d9; font-size: 1.8em;"></i>  <%= @player.injury_notes %></p>
+            <div class="d-flex">
+              <i class="sidebar-button fa-solid fa-notes-medical me-3" style="color: #d9d9d9; font-size: 1.8em;"></i>
+              <p><%= @player.injury_notes %></p>
+            </div>
           <% end %>
 
           <% if @player.expected_return_date.present? %>
-            <p><i class="fa-solid fa-person-walking-arrow-loop-left"style="color: #d9d9d9; font-size: 1.8em;"></i>   <%= @player.expected_return_date.strftime("%d %B %Y") %></p>
+            <div class="d-flex">
+              <i class="fa-solid fa-person-walking-arrow-loop-left me-3" style="color: #d9d9d9; font-size: 1.8em;"></i>
+              <p><%= @player.expected_return_date.strftime("%d %B %Y") %></p>
+            </div>
           <% end %>
 
         </div>
@@ -71,26 +89,26 @@
 
       <hr>
       <%# player events%>
-      <h4>Todays Events</h4>
-
-      <% @events.each do |event| %>
-        <% if event.start_date.to_date == Date.today() %>
-          <div class="col-6 mb-2 p-1">
-            <div class="d-flex">
-              <div class="d-flex align-items-center me-2">
-                <h6><%= event.start_date.strftime("%H:%M")%></h6>
+      <div class="row flex-column px-3">
+        <h4 class="mb-3">Todays Events</h4>
+        <% @events.each do |event| %>
+          <% if event.start_date.to_date == Date.today() %>
+            <div class="col-6 mb-2 pt-1 px-3">
+              <div class="d-flex">
+                <div class="d-flex align-items-center me-2">
+                  <h6><%= event.start_date.strftime("%H:%M")%></h6>
+                </div>
+                <h6><%= event.title %></h6>
               </div>
-              <h6><%= event.title %></h6>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-
+      </div>
     </div>
   </div>
 
   <div class="col-5 d-flex justify-content-start ps-5 align-items-center" style="height: 600px;">
     <%# player photo %>
-    <%= cl_image_tag @player.photo.key, class: "img-fluid", style: "width: 75%;" %>
+    <%= cl_image_tag @player.photo.key, class: "img-fluid player-image" %>
   </div>
 </div>

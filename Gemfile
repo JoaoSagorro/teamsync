@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "3.1.2"
 
 # gem "blazer"
+
 gem "chartkick"
 
 gem "pg_search"
