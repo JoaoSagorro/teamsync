@@ -11,22 +11,22 @@ export default class extends Controller {
 }
 
 
-// const inputElement = document.getElementById("search-bar-input")
-// console.log(inputElement)
+const inputElement = document.getElementById("search-bar-input")
+console.log(inputElement)
 
-// const submitElement = document.getElementById("search-bar-submit")
-// console.log(submitElement)
+const submitElement = document.getElementById("search-bar-submit")
+console.log(submitElement)
 
-// const searchBar = document.getElementById("search-bar")
-// console.log(searchBar)
+const searchBar = document.getElementById("search-bar")
+console.log(searchBar)
 
-// const searchButton = document.getElementById("search-button")
-// console.log(searchButton)
+const searchButton = document.getElementById("search-button")
+console.log(searchButton)
 
-// searchButton.addEventListener("click", (event) => {
-//   event.preventDefault()
-//   console.log("Search")
-//   inputElement.classList.toggle("d-none")
-//   searchButton.classList.toggle("d-none")
-//   submitElement.classList.toggle("d-none")
-// })
+searchButton.addEventListener("click", (event) => {
+  event.preventDefault()
+  console.log("Search")
+  inputElement.classList.toggle("d-none")
+  searchButton.classList.toggle("d-none")
+  submitElement.classList.toggle("d-none")
+})

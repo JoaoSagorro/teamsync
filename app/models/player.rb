@@ -17,4 +17,7 @@ class Player < ApplicationRecord
 
   include PgSearch::Model
   multisearchable against: %i[first_name last_name health]
+  PgSearch.multisearch_options = {
+    using: { tsearch: { prefix: true } }
+  }
 end

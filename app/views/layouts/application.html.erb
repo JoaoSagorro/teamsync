@@ -19,7 +19,7 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
+  <% if controller_name != "pages" && controller_name != "sessions" && controller_name != "registrations" %>
     <%= render "shared/navbar" %>
     <%= render "shared/sidebar" %>
     <%= render "shared/flashes" %>
