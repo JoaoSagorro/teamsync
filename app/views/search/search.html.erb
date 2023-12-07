@@ -107,9 +107,12 @@
       <% @events.each do |event| %>
         <% if event.event_type != "Match" %>
           <div class="col-3 my-3 ms-3">
-            <h5><%= event.title %></h5>
-            <h6><%= event.start_date.strftime("%H:%M")%></h6>
+            <%= link_to team_event_path(@team, event) do %>
+              <h5><%= event.title %></h5>
+            <% end %>
             <h6><%= event.event_type %></h6>
+            <h6><%= event.start_date.to_date.strftime("%-d %b %Y")%></h6>
+            <h6><%= event.start_date.strftime("%H:%M")%></h6>
           </div>
         <% end %>
       <% end %>

@@ -10,7 +10,9 @@
       <% if @todays_events.any? %>
         <% @todays_events.each do |event|  %>
             <div class="col-8 mb-2">
-              <h5><%= event.title %></h5>
+              <%= link_to team_event_path(@team, event) do %>
+                <h5><%= event.title %></h5>
+              <% end %>
               <h6><%= event.start_date.strftime("%H:%M")%></h6>
             </div>
             <div class="col-4 text-end mb-2">

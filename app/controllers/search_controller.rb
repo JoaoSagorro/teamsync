@@ -2,7 +2,6 @@ class SearchController < ApplicationController
   def search
     @team = current_user.team
     if params[:search].present?
-      PgSearch::Multisearch.rebuild(Player)
       results = PgSearch.multisearch(params[:search])
     end
 
@@ -15,6 +14,7 @@ class SearchController < ApplicationController
 
       events = results.select { |result| result.searchable_type == "Event" }
       @events = events.map { |event| event.searchable}
+      @events = @events.sort_by { |key| key[:start_date] }
     end
   end
 end
