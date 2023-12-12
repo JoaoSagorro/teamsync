@@ -1,4 +1,6 @@
-<h1>Le Wagon Bootcamp final project</h1>
+<h1>Sports Management Software</h1>
+
+<h3>Le Wagon Bootcamp final project</h3>
 
 This project was done in a two-week sprint for the final demo day of the Bootcamp at Le Wagon Portugal. 
 
