@@ -2,7 +2,7 @@
 
 <h3>Le Wagon Bootcamp final project</h3>
 
-This project was done in a two-week sprint for the final demo day of the Bootcamp at Le Wagon Portugal. 
+This project was done in a two-week sprint for the final demo day of the Bootcamp at Le Wagon Portugal. 👨🏻‍💻 
 
 Professional sports clubs (for example soccer, basketball and futsal), still use many apps to organize and store all the information about their athletes and staff (training routines, injury reports, nutrition reports, meetings and training schedules). 
 
