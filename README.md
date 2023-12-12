@@ -12,4 +12,4 @@ Because this is meant to be an organizational software involving every member of
 
 As we added a chat to the app, we had some trouble with the users, as we weren't able to create new users. We had to change the structure of the database so it was possible to add new users to the same team. 
 
-I'm still working on this project and I'm looking forward to adding new features to it.
+I'm still working on this project and I'm looking forward to adding new features to it. 🚀
